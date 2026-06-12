@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Séance 2 : L'Anatomie du Bug - Compagnon de Coaching</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royal: {
+                            50: '#f5f7fa',
+                            100: '#eaeef4',
+                            200: '#d0dae6',
+                            300: '#a7bad1',
+                            400: '#7795b7',
+                            500: '#52759c',
+                            600: '#405c7f',
+                            700: '#344b68',
+                            800: '#2d3f57',
+                            900: '#1b2635',
+                            950: '#0f172a', // deep slate
+                        },
+                        gold: {
+                            50: '#fdfbf7',
+                            100: '#fbf5e6',
+                            200: '#f5e7c4',
+                            300: '#edd195',
+                            400: '#e3b560',
+                            500: '#d99a36',
+                            600: '#c27e2a',
+                            700: '#a15f24',
+                            800: '#834b21',
+                            900: '#6b3d1e',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'ui-serif', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'ui-sans-serif', 'system-ui'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .print-card {
+                border: 2px solid #1e293b !important;
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-royal-950 text-slate-100 antialiased min-h-screen selection:bg-gold-500 selection:text-royal-950">
+
+    <!-- Header Navigation (No Print) -->
+    <header class="border-b border-royal-900 bg-royal-950/80 backdrop-blur-md sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-500 flex items-center justify-center shadow-lg shadow-rose-500/10">
+                    <svg class="w-6 h-6 text-royal-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-gold-400 font-bold block">Le Syndrome de Louis XIV</span>
+                    <span class="text-sm font-semibold text-slate-200">Séance 2 : L'Anatomie du Bug</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#validation" class="text-xs uppercase tracking-wider text-slate-400 hover:text-gold-400 transition">Le Capot</a>
+                <a href="#heritage" class="text-xs uppercase tracking-wider text-slate-400 hover:text-gold-400 transition">Biais de Négativité</a>
+                <a href="#caprice" class="text-xs uppercase tracking-wider text-slate-400 hover:text-gold-400 transition">Le Roi Capricieux</a>
+                <a href="#decryptage" class="text-xs uppercase tracking-wider text-gold-400 font-semibold border border-gold-500/30 px-3 py-1.5 rounded-lg hover:bg-gold-500/10 transition">Décrypter mon bug</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-12 pb-20 border-b border-royal-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-royal-900/60 via-royal-950 to-royal-950">
+        <!-- Abstract Red/Amber Accents for "Bug/Anatomy" theme -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-rose-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs uppercase tracking-widest font-semibold mb-6">
+                <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span> Séance 2 • Décryptage Neuro-Biologique
+            </span>
+            <h1 class="serif-title text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                L'Anatomie du Bug
+            </h1>
+            <p class="serif-title text-xl sm:text-2xl text-gold-200/80 italic mb-8 max-w-2xl mx-auto">
+                "Pourquoi ton cerveau te sabote (et comment fonctionne ta machine biologique)."
+            </p>
+            <div class="max-w-xl mx-auto p-4 rounded-xl bg-royal-900/40 border border-royal-800/60 text-sm text-slate-300 backdrop-blur">
+                <span class="font-bold text-rose-400">Postulat biologique :</span> Tu n'es ni fou ni malade. Tu possèdes simplement un logiciel de survie préhistorique conçu pour la savane africaine, qui tourne à vide dans un confort absolu.
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INFOGRAPHIE 1: LE TRADUCTEUR DE L'AMYGDALE (TIGRES EN PAPIER) -->
+    <section id="heritage" class="py-20 bg-royal-900/20 border-t border-b border-royal-900/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-rose-400 font-semibold">Infographie Interactive 1</span>
+                <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">Le Traducteur de Ton Amygdale</h2>
+                <p class="text-slate-400">
+                    Ton cerveau reptilien ne sait pas lire un mail ou comprendre un horaire de train. Il traduit chaque micro-friction moderne en <strong>menace de mort imminente</strong>. Clique sur un déclencheur moderne pour voir son bug de traduction :
+                </p>
+            </div>
+
+            <!-- Interactive Trigger Board -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Left Buttons Selector -->
+                <div class="lg:col-span-5 space-y-4">
+                    <button onclick="switchBugTranslation('email')" id="btn-bug-email" class="w-full text-left p-4 rounded-xl border border-rose-500/20 bg-slate-900/40 hover:bg-slate-900/80 transition duration-300 flex items-center gap-4 group active-bug-btn border-rose-500/60">
+                        <div class="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 font-bold group-hover:scale-105 transition">📧</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-200">Un mail sec de ton patron</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Friction professionnelle banale</p>
+                        </div>
+                    </button>
+
+                    <button onclick="switchBugTranslation('train')" id="btn-bug-train" class="w-full text-left p-4 rounded-xl border border-transparent bg-slate-900/40 hover:bg-slate-900/80 transition duration-300 flex items-center gap-4 group">
+                        <div class="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 font-bold group-hover:scale-105 transition">🚇</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-200">Ton train a 10 minutes de retard</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Contretemps logistique</p>
+                        </div>
+                    </button>
+
+                    <button onclick="switchBugTranslation('sms')" id="btn-bug-sms" class="w-full text-left p-4 rounded-xl border border-transparent bg-slate-900/40 hover:bg-slate-900/80 transition duration-300 flex items-center gap-4 group">
+                        <div class="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 font-bold group-hover:scale-105 transition">💬</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-200">Un SMS froid ou resté sans réponse</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Interaction sociale incertaine</p>
+                        </div>
+                    </button>
+
+                    <button onclick="switchBugTranslation('agenda')" id="btn-bug-agenda" class="w-full text-left p-4 rounded-xl border border-transparent bg-slate-900/40 hover:bg-slate-900/80 transition duration-300 flex items-center gap-4 group">
+                        <div class="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 font-bold group-hover:scale-105 transition">📅</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-200">L'agenda décalé de 15 minutes</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Imprévu du quotidien</p>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Right translation screen -->
+                <div class="lg:col-span-7 bg-slate-900/90 border-2 border-rose-500/30 rounded-3xl p-6 sm:p-8 relative min-h-[350px] flex flex-col justify-between overflow-hidden shadow-2xl">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-rose-500/5 rounded-full blur-3xl"></div>
+                    
+                    <!-- Screen header -->
+                    <div class="flex items-center justify-between border-b border-royal-800/80 pb-4">
+                        <span class="text-xs tracking-widest uppercase font-bold text-rose-400 animate-pulse">● ÉCOUTE DU CANAL BIOLOGIQUE</span>
+                        <span class="text-[10px] uppercase font-semibold text-slate-500 px-2 py-1 bg-royal-900/60 rounded">Code: BIOS_v1.0</span>
+                    </div>
+
+                    <!-- Translation Dynamic Content -->
+                    <div class="py-6 flex-1 flex flex-col justify-center" id="translation-display">
+                        <div class="flex items-start gap-4 mb-4">
+                            <span class="text-3xl">👁️</span>
+                            <div>
+                                <h3 class="text-xs uppercase font-bold text-slate-400 tracking-wider">Ce que tu vis (XXIème Siècle)</h3>
+                                <p class="text-lg font-semibold text-white mt-1">Un email pro un peu sec de ton boss</p>
+                            </div>
+                        </div>
+
+                        <div class="my-3 border-l-2 border-dashed border-rose-500/30 pl-6 py-1 italic text-xs text-rose-400">
+                            Filtre de l'amygdale préhistorique en cours...
+                        </div>
+
+                        <div class="flex items-start gap-4 mt-2">
+                            <span class="text-3xl text-rose-500 animate-bounce">🚨</span>
+                            <div>
+                                <h3 class="text-xs uppercase font-bold text-rose-400 tracking-wider">Ce que ton cerveau reptilien comprend</h3>
+                                <p class="text-xl font-bold text-rose-300 mt-1">"Bannissement imminent de la tribu. Tu vas crever de froid et de faim tout seul dans la jungle."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Warning footer -->
+                    <div class="border-t border-royal-800/60 pt-4 text-xs flex justify-between items-center text-slate-400">
+                        <span>Réaction : <strong>Adrénaline & Cortisol</strong></span>
+                        <span class="text-rose-400 font-bold">⚠️ Diagnostic : TIGRE EN PAPIER</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INFOGRAPHIE 2: L'ANESTHÉSIE DE L'ABONDANCE -->
+    <section id="caprice" class="py-20 bg-royal-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Textual demonstration -->
+                <div class="order-2 lg:order-1">
+                    <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Infographie 2 • Paradoxe du Souverain</span>
+                    <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-6">L'Anesthésie de l'Abondance</h2>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        Plus la technologie supprime les frictions physiques de nos vies, plus notre tolérance psychologique s'effondre. Nous vivons comme Louis XIV à Versailles, outrés par un courant d'air ou une seconde de retard.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        En éliminant les vrais défis, on transforme de simples contrariétés logistiques en insultes majestueuses. Le confort permanent a anesthésié notre muscle de la résilience.
+                    </p>
+                    <div class="p-5 bg-royal-900/50 border-r-4 border-gold-500 rounded-l-xl text-sm italic text-slate-300">
+                        "L'homme le plus puissant du monde au XVIIe siècle piquait une crise de rage nationale si son bouillon n'était pas tiède. Tu fais pareil quand la 4G rame dans le métro."
+                    </div>
+                </div>
+
+                <!-- Interactive Friction Scale visualizer -->
+                <div class="order-1 lg:order-2 bg-slate-900/60 border border-royal-800 rounded-3xl p-6 sm:p-8">
+                    <h3 class="text-xs uppercase tracking-widest font-semibold text-slate-300 text-center mb-6">L'Effondrement de la Friction-Tolerance</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Scale 1: Ancien temps -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-bold text-emerald-400">Vie en l'an 1000 (Friction élevée)</span>
+                                <span>Capacité d'endurance : <strong class="text-emerald-400">95%</strong></span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+                                <div class="bg-emerald-500 h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-1">On endure le froid extrême, la faim temporaire, et des jours de marche sans broncher.</p>
+                        </div>
+
+                        <!-- Scale 2: Louis XIV -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-bold text-gold-400">Louis XIV à Versailles (Friction faible)</span>
+                                <span>Capacité d'endurance : <strong class="text-gold-400">30%</strong></span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+                                <div class="bg-gold-500 h-full rounded-full" style="width: 30%"></div>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-1">Le moindre faux-pas d'un courtisan déclenche une colère d'État.</p>
+                        </div>
+
+                        <!-- Scale 3: Modern User -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-bold text-rose-500">Toi aujourd'hui (Friction instantanée / Zéro)</span>
+                                <span>Capacité d'endurance : <strong class="text-rose-500 animate-pulse">5%</strong></span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+                                <div class="bg-rose-500 h-full rounded-full" style="width: 5%"></div>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-1">Le Wi-Fi saute 2 minutes, ou ton livreur Deliveroo a du retard et ta journée est détruite.</p>
+                        </div>
+
+                        <div class="bg-rose-950/20 p-4 border border-rose-900/30 rounded-xl mt-4">
+                            <span class="text-xs font-bold text-rose-400 uppercase tracking-widest block mb-1">Le Constat Cru :</span>
+                            <p class="text-xs text-slate-300">
+                                Tu es le manager tatillon de ta propre prison dorée. Ton besoin frénétique de contrôle dissimule ta peur panique du vide ou de l'imprévu.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INTERACTIVE : LE DECRYPTAGE DE LA MACHINE -->
+    <section id="decryptage" class="py-20 bg-gradient-to-b from-royal-950 to-royal-900 border-t border-royal-900 relative">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Exercice 2 • Registre du Souverain</span>
+                <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">Le Décryptage du Bug</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base">
+                    Isole une seule de tes névroses notées hier et passe-la à la moulinette de la raison neuro-biologique. Remplis les trois piliers ci-dessous pour désactiver la chimie.
+                </p>
+            </div>
+
+            <!-- Workspace Card -->
+            <div class="bg-royal-950 border-2 border-rose-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+                <!-- Watermark Stamp -->
+                <div class="absolute top-6 right-6 w-24 h-24 border-2 border-rose-500/10 rounded-full flex items-center justify-center text-rose-500/10 font-bold serif-title text-xs rotate-12 pointer-events-none uppercase">
+                    Anatomie Bug
+                </div>
+
+                <div class="border-b border-royal-800 pb-6 mb-8">
+                    <h3 class="serif-title text-xl text-rose-400 font-semibold mb-1">Fiche d'Audit Technique de l'Esprit</h3>
+                    <p class="text-xs text-slate-400">Traduis tes comportements automatiques en faits physiques et rationnels.</p>
+                </div>
+
+                <!-- Form Inputs -->
+                <div class="space-y-8">
+                    
+                    <!-- Choix de la névrose -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-slate-200">
+                            Sélectionne la névrose à décrypter aujourd'hui :
+                            <span class="block text-xs font-normal text-slate-400 mt-0.5">(Ex: L'impatience maladive, la panique des notifications, l'obsession d'être parfait...)</span>
+                        </label>
+                        <input id="form-nevrose" type="text" placeholder="Exemple : Ma panique dès que mon boss tarde à répondre à un mail" 
+                               class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-rose-500 transition placeholder:text-slate-600">
+                    </div>
+
+                    <hr class="border-royal-900">
+
+                    <!-- Question 1: Le Tigre Imaginaire -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-rose-400 uppercase tracking-widest px-2 py-0.5 bg-rose-500/10 rounded">Question 1</span>
+                            <h4 class="text-sm font-semibold text-slate-200">Quel est le "Tigre Imaginaire" ?</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-0.5">Quelle est la menace ridicule que mon cerveau reptilien préhistorique croit déceler dans cette situation ?</p>
+                        <textarea id="form-q1" rows="2" placeholder="Ex: Mon cerveau croit que si mon boss ne répond pas, je vais être licencié, banni de la société et crever de froid sous un pont..." 
+                                  class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-rose-500 transition placeholder:text-slate-600"></textarea>
+                    </div>
+
+                    <hr class="border-royal-900">
+
+                    <!-- Question 2: Le Caprice de Roi -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-rose-400 uppercase tracking-widest px-2 py-0.5 bg-rose-500/10 rounded">Question 2</span>
+                            <h4 class="text-sm font-semibold text-slate-200">Où est mon caprice de Roi Soleil ?</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-0.5">Quelle est la petite friction de la réalité matérielle ou du rythme des autres que je refuse d'accepter parce que je suis trop habitué au confort immédiat ?</p>
+                        <textarea id="form-q2" rows="2" placeholder="Ex: Je refuse d'admettre que les autres ne soient pas à ma disposition instantanée et aient leur propre charge mentale à gérer." 
+                                  class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-rose-500 transition placeholder:text-slate-600"></textarea>
+                    </div>
+
+                    <hr class="border-royal-900">
+
+                    <!-- Question 3: Le Coût Réel -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-rose-400 uppercase tracking-widest px-2 py-0.5 bg-rose-500/10 rounded">Question 3</span>
+                            <h4 class="text-sm font-semibold text-slate-200">Quel est le coût réel de ce bug ?</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-0.5">Quelle est l'énergie mentale, la sérénité ou la qualité relationnelle que je brûle bêtement à cause de cette réaction automatique ?</p>
+                        <textarea id="form-q3" rows="2" placeholder="Ex: Je gâche 3 heures de focus mental, je stresse en silence et je réponds de manière hyper agressive à ma compagne ce soir..." 
+                                  class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-rose-500 transition placeholder:text-slate-600"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- Interactive CTA Button -->
+                <div class="mt-10 pt-6 border-t border-royal-800/80 flex flex-col sm:flex-row gap-4 justify-between items-center no-print">
+                    <p class="text-xs text-slate-400 max-w-sm text-center sm:text-left">
+                        Validez cet audit technique de votre cerveau. Nous allons désamorcer le pilote automatique et forger une version officielle imprimable.
+                    </p>
+                    <button onclick="genererAudit()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-royal-950 font-bold tracking-wider text-xs uppercase shadow-lg shadow-rose-600/20 active:translate-y-0.5 transition">
+                        Décrypter mon Bug
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRINTABLE AUDIT CARD -->
+            <div id="audit-container" class="hidden mt-12 bg-white text-royal-950 rounded-3xl p-8 border-4 border-rose-500/80 shadow-2xl relative">
+                <div class="absolute top-4 right-4 text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3 py-1 rounded-full no-print">
+                    Version Imprimable
+                </div>
+                
+                <div class="text-center mb-8 pb-6 border-b-2 border-rose-100">
+                    <h4 class="serif-title text-2xl sm:text-3xl font-bold tracking-tight uppercase">Audit Technique du Cerveau</h4>
+                    <p class="text-xs uppercase tracking-widest text-rose-800 font-semibold mt-1">SOUVERAINETÉ ET LIBÉRATION COGNITIVE</p>
+                    <p class="text-[10px] text-slate-500 italic mt-2">"Je comprends les bugs biologiques de ma machine pour ne plus jamais en être l'esclave."</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span class="text-xs uppercase font-bold text-rose-700 tracking-wider">La Névrose Observée</span>
+                        <p id="res-nevrose" class="font-bold text-base mt-1 text-royal-900">—</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-rose-50/40 rounded-2xl border border-rose-100">
+                            <span class="text-xs uppercase font-bold text-rose-800 tracking-wider">🦁 Le Tigre Imaginaire (Reptilien)</span>
+                            <p id="res-q1" class="text-sm italic text-slate-800 mt-2 leading-relaxed">—</p>
+                        </div>
+
+                        <div class="p-4 bg-amber-50/40 rounded-2xl border border-amber-100">
+                            <span class="text-xs uppercase font-bold text-amber-800 tracking-wider">👑 Le Caprice de Roi (Égo)</span>
+                            <p id="res-q2" class="text-sm italic text-slate-800 mt-2 leading-relaxed">—</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-slate-900 text-white rounded-2xl border border-slate-800">
+                        <span class="text-xs uppercase font-bold text-rose-400 tracking-wider">💸 Le Coût Réel de ce Bug (Facture Mentale)</span>
+                        <p id="res-q3" class="text-sm italic text-slate-300 mt-2 leading-relaxed">—</p>
+                    </div>
+                </div>
+
+                <!-- Antidote Action Pack -->
+                <div class="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-2xl">
+                    <span class="text-xs uppercase font-bold text-amber-800 tracking-wider block mb-2">🛡️ ANTIDOTE : L'Observateur Souverain</span>
+                    <p class="text-xs text-slate-700 leading-relaxed">
+                        Chaque fois que ce bug s'active, arrêtez-vous. Respirez et dites à voix haute : <em>"Mon amygdale s'excite encore sur un tigre en papier. C'est du confort, pas de la survie."</em> Foutez-vous la paix.
+                    </p>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-100 text-center space-y-4">
+                    <button onclick="window.print()" class="no-print inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-royal-900 hover:bg-royal-800 text-white font-semibold text-xs uppercase tracking-wider transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                        </svg>
+                        Imprimer l'Audit Biologique
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PLAN D'ACTION IMMÉDIAT -->
+    <section class="py-16 bg-slate-900/40 border-t border-royal-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="serif-title text-2xl font-bold text-center text-white mb-10">Consignes Post-Séance</h2>
+            
+            <div class="bg-royal-900/20 border border-royal-800/60 rounded-3xl p-8 space-y-6">
+                <p class="text-sm text-slate-300">
+                    Notre cerveau n'a pas reçu la mise à jour moderne, à toi de forcer le patch manuel :
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-4 bg-royal-950/60 rounded-xl border border-royal-800">
+                        <span class="text-rose-400 font-bold text-lg block mb-1">Désamorce</span>
+                        <span class="text-xs text-slate-400">Quand la colère ou l'impatience s'allument, repère immédiatement ton "Tigre en papier" et nomme-le.</span>
+                    </div>
+                    <div class="p-4 bg-royal-950/60 rounded-xl border border-royal-800">
+                        <span class="text-rose-400 font-bold text-lg block mb-1">Accepte</span>
+                        <span class="text-xs text-slate-400">Laisse la friction et le rythme du monde s'exprimer. Tu n'es pas Louis XIV, les autres ne sont pas tes valets.</span>
+                    </div>
+                    <div class="p-4 bg-royal-950/60 rounded-xl border border-royal-800">
+                        <span class="text-rose-400 font-bold text-lg block mb-1">Observe</span>
+                        <span class="text-xs text-slate-400">Observe la vague chimique d'adrénaline se dissiper tranquillement en moins de 90 secondes.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Closing -->
+    <footer class="py-12 border-t border-royal-900 bg-royal-950 text-center text-slate-500 text-xs no-print">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="serif-title text-sm text-gold-300/60 mb-2">Le Syndrome de Louis XIV — Coaching Intensif</p>
+            <p>Demain, Séance 3 : Nous passerons à la reprogrammation par l'action brute. Mordre enfin dans la vie.</p>
+            <p class="mt-6 text-royal-700">&copy; 2026. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Bug Switcher Logic
+        const BugDatabase = {
+            email: {
+                modern: "Un email pro un peu sec de ton boss",
+                ancient: "🚨 \"Bannissement imminent de la tribu. Tu vas crever de froid et de faim tout seul dans la jungle.\"",
+                emojiM: "📧",
+                emojiA: "🚨"
+            },
+            train: {
+                modern: "Ton train a 10 minutes de retard",
+                ancient: "🏹 \"Famine mortelle. Tu as loupé la chasse saisonnière et ton clan ne passera pas l'hiver.\"",
+                emojiM: "🚇",
+                emojiA: "💀"
+            },
+            sms: {
+                modern: "Un SMS froid ou resté sans réponse",
+                ancient: "🥀 \"Rejet total du groupe social. Tu n'as plus aucun allié pour te défendre contre les meutes sauvages.\"",
+                emojiM: "💬",
+                emojiA: "🐺"
+            },
+            agenda: {
+                modern: "L'agenda décalé de 15 minutes",
+                ancient: "🌋 \"Alerte catastrophe naturelle. La structure méticuleuse de ta survie vient de s'effondrer.\"",
+                emojiM: "📅",
+                emojiA: "🦖"
+            }
+        };
+
+        function switchBugTranslation(key) {
+            // Remove active style from all buttons
+            ['email', 'train', 'sms', 'agenda'].forEach(k => {
+                const btn = document.getElementById(`btn-bug-${k}`);
+                if (btn) {
+                    btn.classList.remove('border-rose-500/60', 'active-bug-btn');
+                    btn.classList.add('border-transparent');
+                }
+            });
+
+            // Add active style to selected button
+            const activeBtn = document.getElementById(`btn-bug-${key}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-transparent');
+                activeBtn.classList.add('border-rose-500/60', 'active-bug-btn');
+            }
+
+            // Update Screen Content
+            const db = BugDatabase[key];
+            const display = document.getElementById('translation-display');
+            if (display && db) {
+                display.innerHTML = `
+                    <div class="flex items-start gap-4 mb-4">
+                        <span class="text-3xl">${db.emojiM}</span>
+                        <div>
+                            <h3 class="text-xs uppercase font-bold text-slate-400 tracking-wider">Ce que tu vis (XXIème Siècle)</h3>
+                            <p class="text-lg font-semibold text-white mt-1">${db.modern}</p>
+                        </div>
+                    </div>
+
+                    <div class="my-3 border-l-2 border-dashed border-rose-500/30 pl-6 py-1 italic text-xs text-rose-400">
+                        Filtre de l'amygdale préhistorique en cours...
+                    </div>
+
+                    <div class="flex items-start gap-4 mt-2">
+                        <span class="text-3xl text-rose-500 animate-bounce">${db.emojiA}</span>
+                        <div>
+                            <h3 class="text-xs uppercase font-bold text-rose-400 tracking-wider">Ce que ton cerveau reptilien comprend</h3>
+                            <p class="text-xl font-bold text-rose-300 mt-1">${db.ancient}</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Worksheet Compiler
+        function genererAudit() {
+            const nev = document.getElementById('form-nevrose').value || 'Aucune névrose sélectionnée';
+            const q1 = document.getElementById('form-q1').value || 'Non renseigné';
+            const q2 = document.getElementById('form-q2').value || 'Non renseigné';
+            const q3 = document.getElementById('form-q3').value || 'Non renseigné';
+
+            // Print output fields
+            document.getElementById('res-nevrose').innerText = nev;
+            document.getElementById('res-q1').innerText = q1;
+            document.getElementById('res-q2').innerText = q2;
+            document.getElementById('res-q3').innerText = q3;
+
+            // Reveal and scroll to cards
+            const container = document.getElementById('audit-container');
+            container.classList.remove('hidden');
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>

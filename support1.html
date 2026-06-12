@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Séance 1 : Le Choc de Conscience - Compagnon de Coaching</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royal: {
+                            50: '#f5f7fa',
+                            100: '#eaeef4',
+                            200: '#d0dae6',
+                            300: '#a7bad1',
+                            400: '#7795b7',
+                            500: '#52759c',
+                            600: '#405c7f',
+                            700: '#344b68',
+                            800: '#2d3f57',
+                            900: '#1b2635',
+                            950: '#0f172a', // deep slate
+                        },
+                        gold: {
+                            50: '#fdfbf7',
+                            100: '#fbf5e6',
+                            200: '#f5e7c4',
+                            300: '#edd195',
+                            400: '#e3b560',
+                            500: '#d99a36',
+                            600: '#c27e2a',
+                            700: '#a15f24',
+                            800: '#834b21',
+                            900: '#6b3d1e',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'ui-serif', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'ui-sans-serif', 'system-ui'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .print-card {
+                border: 1px solid #1e293b !important;
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-royal-950 text-slate-100 antialiased min-h-screen selection:bg-gold-500 selection:text-royal-950">
+
+    <!-- Header Navigation (No Print) -->
+    <header class="border-b border-royal-900 bg-royal-950/80 backdrop-blur-md sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-gold-600 to-amber-400 flex items-center justify-center shadow-lg shadow-gold-500/10">
+                    <svg class="w-6 h-6 text-royal-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-gold-400 font-bold block">Le Syndrome de Louis XIV</span>
+                    <span class="text-sm font-semibold text-slate-200">Compagnon de Coaching</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#concept" class="text-xs uppercase tracking-wider text-slate-400 hover:text-gold-400 transition">Le Concept</a>
+                <a href="#paradoxe" class="text-xs uppercase tracking-wider text-slate-400 hover:text-gold-400 transition">Le Paradoxe</a>
+                <a href="#fabrique" class="text-xs uppercase tracking-wider text-slate-400 hover:text-gold-400 transition">La Fabrique à Monstres</a>
+                <a href="#registre" class="text-xs uppercase tracking-wider text-gold-400 font-semibold border border-gold-500/30 px-3 py-1.5 rounded-lg hover:bg-gold-500/10 transition">Mon Registre</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-12 pb-20 border-b border-royal-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-royal-900/60 via-royal-950 to-royal-950">
+        <!-- Abstract Gold Accents -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs uppercase tracking-widest font-semibold mb-6">
+                <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span> Séance 1 • Guide d'intégration
+            </span>
+            <h1 class="serif-title text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Le Choc de Conscience
+            </h1>
+            <p class="serif-title text-xl sm:text-2xl text-gold-200/80 italic mb-8 max-w-2xl mx-auto">
+                "Tu as tout, mais tu fais la tronche."
+            </p>
+            <div class="max-w-xl mx-auto p-4 rounded-xl bg-royal-900/40 border border-royal-800/60 text-sm text-slate-300 backdrop-blur">
+                <span class="font-bold text-gold-400">Postulat de départ :</span> Le livre n'était qu'un apéritif historique. Cette séance est l'électrochoc nécessaire pour passer de la théorie agréable à la chirurgie de vos habitudes d'anxiété.
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INFOGRAPHIE 1: LE PARADOXE DU MONARQUE MODERNE -->
+    <section id="paradoxe" class="py-20 bg-royal-900/20 border-t border-b border-royal-900/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Infographie Interactive 1</span>
+                <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">Le Paradoxe de Notre Siècle</h2>
+                <p class="text-slate-400">
+                    Jamais l'être humain n'a possédé autant de liberté et de protection matérielle. Pourtant, notre réalité mentale n'a jamais été aussi fébrile. Explorez les deux plateaux de la balance.
+                </p>
+            </div>
+
+            <!-- Interactive Split Screen Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                
+                <!-- Card GAUCHE: Votre Réalité Physique (Le Roi Moderne) -->
+                <div class="bg-slate-900/60 border border-emerald-500/20 rounded-3xl p-8 relative overflow-hidden group hover:border-emerald-500/40 transition duration-500 flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-3xl rounded-full"></div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </span>
+                            <h3 class="serif-title text-2xl font-semibold text-emerald-300">Votre Réalité Physique</h3>
+                        </div>
+                        
+                        <p class="text-sm text-slate-400 mb-8">Un niveau de confort et de liberté qui ferait passer Louis XIV pour un indigent.</p>
+                        
+                        <ul class="space-y-4">
+                            <!-- Bullet 1 -->
+                            <li class="flex items-start gap-3 bg-emerald-950/20 p-3 rounded-xl border border-emerald-900/20">
+                                <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-200">Ressources illimitées instantanées</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Eau chaude courante, électricité, chauffage, alimentation saine disponible sans effort.</p>
+                                </div>
+                            </li>
+                            <!-- Bullet 2 -->
+                            <li class="flex items-start gap-3 bg-emerald-950/20 p-3 rounded-xl border border-emerald-900/20">
+                                <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-200">Sécurité et Médecine d'avant-garde</h4>
+                                    <p class="text-xs text-slate-400 mt-1">La peste, le choléra et la mort par simple coupure infectée ont été éradiqués.</p>
+                                </div>
+                            </li>
+                            <!-- Bullet 3 -->
+                            <li class="flex items-start gap-3 bg-emerald-950/20 p-3 rounded-xl border border-emerald-900/20">
+                                <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-200">Accès gratuit au savoir & business mondial</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Possibilité d'apprendre n'importe quelle compétence et de vendre ses idées sur toute la planète depuis un canapé.</p>
+                                </div>
+                            </li>
+                            <!-- Bullet 4 -->
+                            <li class="flex items-start gap-3 bg-emerald-950/20 p-3 rounded-xl border border-emerald-900/20">
+                                <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-200">Le risque d'échec mortel est de zéro</h4>
+                                    <p class="text-xs text-slate-400 mt-1">En cas de faillite ou d'erreur de parcours, la société dispose d'amortisseurs de survie uniques dans l'Histoire.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 text-xs font-semibold text-emerald-400 tracking-wider uppercase text-center border-t border-emerald-900/40 pt-4">
+                        Liberté & Sécurité Physiques Absolues
+                    </div>
+                </div>
+
+                <!-- Card DROITE: Votre Réalité Psychologique (L'esclave Mental) -->
+                <div class="bg-slate-900/60 border border-rose-500/20 rounded-3xl p-8 relative overflow-hidden group hover:border-rose-500/40 transition duration-500 flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 blur-3xl rounded-full"></div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                            </span>
+                            <h3 class="serif-title text-2xl font-semibold text-rose-300">Votre Réalité Psychologique</h3>
+                        </div>
+                        
+                        <p class="text-sm text-slate-400 mb-8">Un festival quotidien de micro-tempêtes et de panique infondée.</p>
+                        
+                        <ul class="space-y-4">
+                            <!-- Bullet 1 -->
+                            <li class="flex items-start gap-3 bg-rose-950/20 p-3 rounded-xl border border-rose-900/20">
+                                <span class="text-rose-400 font-bold mt-0.5">✗</span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-200">Le nœud matinal de l'estomac</h4>
+                                    <p class="text-xs text-slate-400 mt-1">À peine réveillé, le premier geste est de chercher une décharge de cortisol sur l'écran du téléphone.</p>
+                                </div>
+                            </li>
+                            <!-- Bullet 2 -->
+                            <li class="flex items-start gap-3 bg-rose-950/20 p-3 rounded-xl border border-rose-900/20">
+                                <span class="text-rose-400 font-bold mt-0.5">✗</span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-200">La panique du contretemps</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Un retard de 10 minutes de train ou un mail un peu froid gâchent instantanément la journée.</p>
+                                </div>
+                            </li>
+                            <!-- Bullet 3 -->
+                            <li class="flex items-start gap-3 bg-rose-950/20 p-3 rounded-xl border border-rose-900/20">
+                                <span class="text-rose-400 font-bold mt-0.5">✗</span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-200">L'obsession du contrôle permanent</h4>
+                                    <p class="text-xs text-slate-400 mt-1">L'agenda est minuté, et le moindre imprévu déclenche une colère ou une anxiété de fin du monde.</p>
+                                </div>
+                            </li>
+                            <!-- Bullet 4 -->
+                            <li class="flex items-start gap-3 bg-rose-950/20 p-3 rounded-xl border border-rose-900/20">
+                                <span class="text-rose-400 font-bold mt-0.5">✗</span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-200">L'épuisement passif devant les écrans</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Le défilement hypnotique de contenus pour anesthésier la sensation diffuse d'un vide ou de "rater sa vie".</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 text-xs font-semibold text-rose-400 tracking-wider uppercase text-center border-t border-rose-900/40 pt-4">
+                        Névrose & Anxiété Mentale Auto-Infligées
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INFOGRAPHIE 2: LA FABRIQUE À MONSTRES -->
+    <section id="fabrique" class="py-20 bg-royal-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Infographie 2 • Mécanisme Biologique</span>
+                    <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-6">La Fabrique à Monstres</h2>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        Pourquoi votre cerveau vous sabote-t-il alors que vous êtes en parfaite sécurité ? C'est une question de programmation préhistorique.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Pendant des millénaires, le cerveau humain a été câblé pour la survie physique immédiate (fuir un prédateur, trouver de la nourriture avant la famine). Aujourd'hui, libéré de ces menaces physiques réelles, ce système d'alarme sur-entraîné tourne à vide. 
+                    </p>
+                    <div class="p-4 bg-royal-900/50 border-l-4 border-gold-500 rounded-r-xl text-sm italic text-slate-300 mb-6">
+                        "Votre cerveau crée de la peur virtuelle pour s'occuper, car il n'a plus à gérer de peurs physiques réelles."
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-400 font-bold text-lg">
+                            !
+                        </div>
+                        <p class="text-xs text-slate-400">
+                            <strong>Le diagnostic :</strong> Votre "Versailles personnel" est rempli de fantômes que vous confondez avec des prédateurs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visuel du Mécanisme en cascade -->
+                <div class="bg-royal-900/30 border border-royal-800/80 rounded-3xl p-8 relative">
+                    <h3 class="text-sm font-semibold text-slate-200 mb-6 uppercase tracking-widest text-center">La boucle d'alarme à vide</h3>
+                    
+                    <div class="space-y-6 relative before:absolute before:bottom-6 before:top-6 before:left-[21px] before:w-[2px] before:bg-royal-800">
+                        <!-- Étape 1 -->
+                        <div class="flex gap-4 relative z-10">
+                            <div class="w-11 h-11 rounded-full bg-royal-800 border-2 border-royal-700 flex items-center justify-center text-xs font-bold text-slate-300">1</div>
+                            <div class="flex-1 bg-royal-950/60 p-4 rounded-xl border border-royal-800">
+                                <h4 class="text-sm font-semibold text-white">Sécurité Totale (Réalité)</h4>
+                                <p class="text-xs text-slate-400 mt-1">Zéro prédateur. Température idéale. Nourriture abondante. Vie ultra-protégée.</p>
+                            </div>
+                        </div>
+
+                        <!-- Étape 2 -->
+                        <div class="flex gap-4 relative z-10">
+                            <div class="w-11 h-11 rounded-full bg-gold-950 border-2 border-gold-600 flex items-center justify-center text-xs font-bold text-gold-400">2</div>
+                            <div class="flex-1 bg-royal-950/60 p-4 rounded-xl border border-gold-500/30">
+                                <h4 class="text-sm font-semibold text-gold-300">Inactivité d'Alarme (Cerveau)</h4>
+                                <p class="text-xs text-slate-400 mt-1">Votre système de détection des menaces (amygdale) s'ennuie et tourne à vide.</p>
+                            </div>
+                        </div>
+
+                        <!-- Étape 3 -->
+                        <div class="flex gap-4 relative z-10">
+                            <div class="w-11 h-11 rounded-full bg-rose-950 border-2 border-rose-500 flex items-center justify-center text-xs font-bold text-rose-400">3</div>
+                            <div class="flex-1 bg-royal-950/60 p-4 rounded-xl border border-rose-500/30">
+                                <h4 class="text-sm font-semibold text-rose-300">Création de Monstres Virtuels</h4>
+                                <p class="text-xs text-slate-400 mt-1">Vous transformez un mail en retard ou un SMS neutre en danger vital imaginaire.</p>
+                            </div>
+                        </div>
+
+                        <!-- Étape 4 -->
+                        <div class="flex gap-4 relative z-10">
+                            <div class="w-11 h-11 rounded-full bg-rose-950 border-2 border-rose-500 flex items-center justify-center text-xs font-bold text-rose-400 animate-pulse">4</div>
+                            <div class="flex-1 bg-rose-950/30 p-4 rounded-xl border border-rose-500/20">
+                                <h4 class="text-sm font-semibold text-rose-400">La Tronche Légendaire</h4>
+                                <p class="text-xs text-slate-400 mt-1">La colère, l'agacement ou le stress vous emprisonnent. Le miracle d'être en vie est saboté.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INTERACTIVE : LE REGISTRE DU SOUVERAIN -->
+    <section id="registre" class="py-20 bg-gradient-to-b from-royal-950 to-royal-900 border-t border-royal-900 relative">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Exercice Pratique Obligatoire</span>
+                <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">Le Registre du Souverain</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base">
+                    L'écriture manuscrite ou tapée consciente permet de transposer vos fantômes mentaux dans la matière pour enfin les regarder en face. Remplissez cet espace de travail.
+                </p>
+            </div>
+
+            <!-- Interactive Worksheet Container -->
+            <div class="bg-royal-950 border-2 border-gold-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+                <!-- Watermark Stamp -->
+                <div class="absolute top-6 right-6 w-20 h-20 border-2 border-gold-500/10 rounded-full flex items-center justify-center text-gold-500/10 font-bold serif-title text-xs rotate-12 pointer-events-none uppercase">
+                    Souverain
+                </div>
+
+                <div class="border-b border-royal-800 pb-6 mb-8">
+                    <h3 class="serif-title text-xl text-gold-400 font-semibold mb-1">Dossier d'Introspection Directe</h3>
+                    <p class="text-xs text-slate-400">Renseignez vos névroses récurrentes pour voir se dessiner le prix que vous payez.</p>
+                </div>
+
+                <!-- Form Inputs -->
+                <div class="space-y-8">
+                    
+                    <!-- Névrose 1 -->
+                    <div class="space-y-3">
+                        <label class="block text-sm font-semibold text-slate-200">
+                            1. Votre première anxiété ou besoin de contrôle récurrent :
+                            <span class="block text-xs font-normal text-slate-400 mt-0.5">(Ex: La peur panique d'être mal jugé sur un e-mail ou l'obsession de tout minuté)</span>
+                        </label>
+                        <input id="nevrose-1" type="text" placeholder="Ma névrose de..." 
+                               class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-gold-500 transition placeholder:text-slate-600">
+                        
+                        <label class="block text-xs font-semibold text-gold-400/90 mt-2">
+                            Quelle conséquence directe cela a-t-il sur votre journée ?
+                        </label>
+                        <textarea id="consequence-1" rows="2" placeholder="Cela me rend..." 
+                                  class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-gold-500 transition placeholder:text-slate-600"></textarea>
+                    </div>
+
+                    <!-- Divider -->
+                    <hr class="border-royal-900">
+
+                    <!-- Névrose 2 -->
+                    <div class="space-y-3">
+                        <label class="block text-sm font-semibold text-slate-200">
+                            2. Votre deuxième anxiété ou névrose habituelle :
+                            <span class="block text-xs font-normal text-slate-400 mt-0.5">(Ex: La peur irrationnelle de manquer d'argent, l'impossibilité de décrocher du téléphone)</span>
+                        </label>
+                        <input id="nevrose-2" type="text" placeholder="Ma névrose de..." 
+                               class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-gold-500 transition placeholder:text-slate-600">
+                        
+                        <label class="block text-xs font-semibold text-gold-400/90 mt-2">
+                            Quelle conséquence directe cela a-t-il sur votre journée ?
+                        </label>
+                        <textarea id="consequence-2" rows="2" placeholder="Cela me fait..." 
+                                  class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-gold-500 transition placeholder:text-slate-600"></textarea>
+                    </div>
+
+                    <!-- Divider -->
+                    <hr class="border-royal-900">
+
+                    <!-- Névrose 3 -->
+                    <div class="space-y-3">
+                        <label class="block text-sm font-semibold text-slate-200">
+                            3. Votre troisième anxiété ou réaction disproportionnée :
+                            <span class="block text-xs font-normal text-slate-400 mt-0.5">(Ex: Râler dès qu'il y a un retard, se sentir rejeté au moindre SMS direct)</span>
+                        </label>
+                        <input id="nevrose-3" type="text" placeholder="Ma névrose de..." 
+                               class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-gold-500 transition placeholder:text-slate-600">
+                        
+                        <label class="block text-xs font-semibold text-gold-400/90 mt-2">
+                            Quelle conséquence directe cela a-t-il sur votre journée ?
+                        </label>
+                        <textarea id="consequence-3" rows="2" placeholder="Cela m'empêche de..." 
+                                  class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-gold-500 transition placeholder:text-slate-600"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- Action Button -->
+                <div class="mt-10 pt-6 border-t border-royal-800/80 flex flex-col sm:flex-row gap-4 justify-between items-center no-print">
+                    <p class="text-xs text-slate-400 max-w-sm text-center sm:text-left">
+                        Une fois vos névroses tapées, vous pouvez générer le récapitulatif visuel et l'imprimer pour le glisser dans votre carnet physique.
+                    </p>
+                    <button onclick="genererRapport()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-gold-600 to-amber-500 hover:from-gold-500 hover:to-amber-400 text-royal-950 font-bold tracking-wider text-xs uppercase shadow-lg shadow-gold-600/20 active:translate-y-0.5 transition">
+                        Générer mon Registre
+                    </button>
+                </div>
+            </div>
+
+            <!-- RESULT DISPLAY (Hidden by default, shown on generate) -->
+            <div id="result-container" class="hidden mt-12 bg-white text-royal-950 rounded-3xl p-8 border-4 border-gold-500/80 shadow-2xl relative">
+                <div class="absolute top-4 right-4 text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-100 px-3 py-1 rounded-full no-print">
+                    Version Imprimable
+                </div>
+                
+                <div class="text-center mb-8 pb-6 border-b-2 border-gold-200">
+                    <h4 class="serif-title text-2xl sm:text-3xl font-bold tracking-tight uppercase">Registre Personnel du Souverain</h4>
+                    <p class="text-xs uppercase tracking-widest text-amber-800 font-semibold mt-1">Diagnostic de Libération Mentale</p>
+                    <p class="text-[10px] text-slate-500 italic mt-2">"Je regarde mes ombres en face pour redevenir le seul monarque de ma vie."</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span class="text-xs uppercase font-bold text-amber-700 tracking-wider">Névrose 1</span>
+                        <p id="res-nev-1" class="font-bold text-base mt-1 text-royal-900">—</p>
+                        <span class="text-xs uppercase font-semibold text-slate-500 tracking-wider block mt-3">Impact réel :</span>
+                        <p id="res-cons-1" class="text-sm italic text-slate-700 mt-1">—</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span class="text-xs uppercase font-bold text-amber-700 tracking-wider">Névrose 2</span>
+                        <p id="res-nev-2" class="font-bold text-base mt-1 text-royal-900">—</p>
+                        <span class="text-xs uppercase font-semibold text-slate-500 tracking-wider block mt-3">Impact réel :</span>
+                        <p id="res-cons-2" class="text-sm italic text-slate-700 mt-1">—</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span class="text-xs uppercase font-bold text-amber-700 tracking-wider">Névrose 3</span>
+                        <p id="res-nev-3" class="font-bold text-base mt-1 text-royal-900">—</p>
+                        <span class="text-xs uppercase font-semibold text-slate-500 tracking-wider block mt-3">Impact réel :</span>
+                        <p id="res-cons-3" class="text-sm italic text-slate-700 mt-1">—</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-100 text-center space-y-4">
+                    <p class="text-xs text-slate-500 italic">
+                        "Fais cet exercice aujourd'hui, sérieusement. Regarde le prix que tu paies pour des fantômes mentaux."
+                    </p>
+                    <button onclick="window.print()" class="no-print inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-royal-900 hover:bg-royal-800 text-white font-semibold text-xs uppercase tracking-wider transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                        </svg>
+                        Imprimer mon Registre
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PLAN D'ACTION IMMÉDIAT -->
+    <section class="py-16 bg-slate-900/40 border-t border-royal-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="serif-title text-2xl font-bold text-center text-white mb-10">Votre Boussole au Quotidien</h2>
+            
+            <div class="bg-royal-900/20 border border-royal-800/60 rounded-3xl p-8 space-y-6">
+                <p class="text-sm text-slate-300">
+                    Désormais, dès que la moutarde vous monte au nez ou que l'anxiété vous paralyse pour une futilité :
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-4 bg-royal-950/60 rounded-xl border border-royal-800">
+                        <span class="text-gold-400 font-bold text-lg block mb-1">01. Stop</span>
+                        <span class="text-xs text-slate-400">Arrêtez immédiatement votre action et fermez les yeux. Rompez la boucle de réaction instinctive.</span>
+                    </div>
+                    <div class="p-4 bg-royal-950/60 rounded-xl border border-royal-800">
+                        <span class="text-gold-400 font-bold text-lg block mb-1">02. Observez</span>
+                        <span class="text-xs text-slate-400">Regardez la pièce confortable où vous vous trouvez, la sécurité de votre corps à cet instant.</span>
+                    </div>
+                    <div class="p-4 bg-royal-950/60 rounded-xl border border-royal-800">
+                        <span class="text-gold-400 font-bold text-lg block mb-1">03. Interrogez</span>
+                        <span class="text-xs text-slate-400">"Est-ce que j'ai un problème physique réel de survie immédiate, ou est-ce que je joue la victime ?"</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Closing -->
+    <footer class="py-12 border-t border-royal-900 bg-royal-950 text-center text-slate-500 text-xs no-print">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="serif-title text-sm text-gold-300/60 mb-2">Le Syndrome de Louis XIV — Coaching Intensif</p>
+            <p>Demain, Séance 2 : Nous ouvrirons le capot biologique du cerveau pour comprendre d'où vient ce sabotage.</p>
+            <p class="mt-6 text-royal-700">&copy; 2026. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        function genererRapport() {
+            // Get inputs
+            const n1 = document.getElementById('nevrose-1').value || 'Aucune névrose renseignée';
+            const c1 = document.getElementById('consequence-1').value || 'Aucune conséquence renseignée';
+            
+            const n2 = document.getElementById('nevrose-2').value || 'Aucune névrose renseignée';
+            const c2 = document.getElementById('consequence-2').value || 'Aucune conséquence renseignée';
+            
+            const n3 = document.getElementById('nevrose-3').value || 'Aucune névrose renseignée';
+            const c3 = document.getElementById('consequence-3').value || 'Aucune conséquence renseignée';
+
+            // Set text to output
+            document.getElementById('res-nev-1').innerText = n1;
+            document.getElementById('res-cons-1').innerText = c1;
+
+            document.getElementById('res-nev-2').innerText = n2;
+            document.getElementById('res-cons-2').innerText = c2;
+
+            document.getElementById('res-nev-3').innerText = n3;
+            document.getElementById('res-cons-3').innerText = c3;
+
+            // Reveal Container
+            const resultContainer = document.getElementById('result-container');
+            resultContainer.classList.remove('hidden');
+            
+            // Scroll to view
+            resultContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>

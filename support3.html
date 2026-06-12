@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Séance 3 : La Métamorphose - Compagnon de Coaching</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royal: {
+                            50: '#f4f6fa',
+                            100: '#e9eef5',
+                            200: '#cbd9e9',
+                            300: '#9cb7d7',
+                            400: '#648fc1',
+                            500: '#436fa6',
+                            600: '#325686',
+                            700: '#29466d',
+                            800: '#223a59',
+                            900: '#1a2b42',
+                            950: '#0b131e', // deepest royal slate
+                        },
+                        amber: {
+                            50: '#fefcf3',
+                            100: '#fdf6e2',
+                            200: '#fbe9b7',
+                            300: '#f8d57e',
+                            400: '#f4ba47',
+                            500: '#e89e1b',
+                            600: '#cc7e11',
+                            700: '#aa5f0f',
+                            800: '#8c4b12',
+                            900: '#733e12',
+                        },
+                        volcano: {
+                            500: '#f97316', // high action orange
+                            600: '#ea580c',
+                            700: '#c2410c',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'ui-serif', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'ui-sans-serif', 'system-ui'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .print-card {
+                border: 2px solid #0f172a !important;
+                background: white !important;
+                color: #0f172a !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-royal-950 text-slate-100 antialiased min-h-screen selection:bg-amber-500 selection:text-royal-950">
+
+    <!-- Header Navigation (No Print) -->
+    <header class="border-b border-royal-900 bg-royal-950/80 backdrop-blur-md sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-volcano-600 to-amber-400 flex items-center justify-center shadow-lg shadow-volcano-500/20">
+                    <svg class="w-5 h-5 text-royal-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-amber-500 font-bold block">Le Syndrome de Louis XIV</span>
+                    <span class="text-sm font-semibold text-slate-200">Séance 3 : La Métamorphose</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#deception" class="text-xs uppercase tracking-wider text-slate-400 hover:text-amber-400 transition">Le Miroir</a>
+                <a href="#protocoles" class="text-xs uppercase tracking-wider text-slate-400 hover:text-amber-400 transition">Les Rituels</a>
+                <a href="#preuve" class="text-xs uppercase tracking-wider text-slate-400 hover:text-amber-400 transition">Le Feu</a>
+                <a href="#decret" class="text-xs uppercase tracking-wider text-amber-500 font-semibold border border-amber-500/30 px-3 py-1.5 rounded-lg hover:bg-amber-500/10 transition">Mon Décret</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-12 pb-20 border-b border-royal-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-royal-900/60 via-royal-950 to-royal-950">
+        <!-- Volcano Fiery Accents for "Metamorphosis" theme -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-volcano-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-volcano-600/10 border border-volcano-500/30 text-volcano-500 text-xs uppercase tracking-widest font-semibold mb-6">
+                <span class="w-2 h-2 rounded-full bg-volcano-500 animate-pulse"></span> Séance 3 • Dompter la bête & Mordre dans la vie
+            </span>
+            <h1 class="serif-title text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                La Métamorphose
+            </h1>
+            <p class="serif-title text-xl sm:text-2xl text-amber-200/80 italic mb-8 max-w-2xl mx-auto">
+                "Tue l'enfant capricieux qui sommeille en toi. Saisis ta couronne."
+            </p>
+            <div class="max-w-2xl mx-auto p-4 rounded-xl bg-royal-900/40 border border-royal-800/60 text-sm text-slate-300 backdrop-blur">
+                <span class="font-bold text-volcano-500">Alerte Souveraineté :</span> La passivité et la plainte ne sont plus des bugs biologiques. À ce niveau de confort technologique, faire la tronche est un choix. C'est de la lâcheté spirituelle.
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INFOGRAPHIE 1: LE MIROIR DU CHOC (ENFANT GÂTÉ VS SOUVERAIN CONSCIENT) -->
+    <section id="deception" class="py-20 bg-royal-900/20 border-t border-b border-royal-900/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-volcano-500 font-semibold">Infographie Interactive 1</span>
+                <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">Le Miroir de Ta Transition</h2>
+                <p class="text-slate-400">
+                    Clique sur un incident moderne du quotidien pour mesurer la différence abyssale entre la réaction de <strong>l'enfant gâté</strong> (passivité, anxiété, plainte) et la réponse du <strong>souverain conscient</strong>.
+                </p>
+            </div>
+
+            <!-- Grid interactive selector -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Left selection column -->
+                <div class="lg:col-span-4 flex flex-col gap-4 justify-between">
+                    <button onclick="switchMiroir('wifi')" id="btn-miroir-wifi" class="w-full text-left p-4 rounded-xl border border-volcano-500/20 bg-slate-900/40 hover:bg-slate-900/80 transition duration-300 flex items-center gap-4 group active-miroir-btn border-volcano-500/60">
+                        <div class="w-10 h-10 rounded-lg bg-volcano-500/10 flex items-center justify-center text-volcano-500 font-bold group-hover:scale-105 transition">🌐</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-200 font-sans">Le Wi-Fi qui rame</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Le ralentissement technique</p>
+                        </div>
+                    </button>
+
+                    <button onclick="switchMiroir('bouchon')" id="btn-miroir-bouchon" class="w-full text-left p-4 rounded-xl border border-transparent bg-slate-900/40 hover:bg-slate-900/80 transition duration-300 flex items-center gap-4 group">
+                        <div class="w-10 h-10 rounded-lg bg-volcano-500/10 flex items-center justify-center text-volcano-500 font-bold group-hover:scale-105 transition">🚗</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-200">Embouteillage soudain</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Le grain de sable logistique</p>
+                        </div>
+                    </button>
+
+                    <button onclick="switchMiroir('mail')" id="btn-miroir-mail" class="w-full text-left p-4 rounded-xl border border-transparent bg-slate-900/40 hover:bg-slate-900/80 transition duration-300 flex items-center gap-4 group">
+                        <div class="w-10 h-10 rounded-lg bg-volcano-500/10 flex items-center justify-center text-volcano-500 font-bold group-hover:scale-105 transition">📧</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-200">Un mail sec d'un client</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">La micro-tempête professionnelle</p>
+                        </div>
+                    </button>
+
+                    <button onclick="switchMiroir('conjoint')" id="btn-miroir-conjoint" class="w-full text-left p-4 rounded-xl border border-transparent bg-slate-900/40 hover:bg-slate-900/80 transition duration-300 flex items-center gap-4 group">
+                        <div class="w-10 h-10 rounded-lg bg-volcano-500/10 flex items-center justify-center text-volcano-500 font-bold group-hover:scale-105 transition">🏠</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-200">L'oubli du conjoint</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Le micro-conflit domestique</p>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Right Display screens side-by-side -->
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                    
+                    <!-- Left: L'Enfant Gâté (Fragilité, Rouge) -->
+                    <div class="bg-slate-950 border border-red-500/30 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -top-12 -left-12 w-32 h-32 bg-red-500/5 rounded-full blur-2xl"></div>
+                        <div>
+                            <div class="flex items-center gap-3 border-b border-royal-900 pb-4 mb-4">
+                                <span class="text-2xl">👶</span>
+                                <div>
+                                    <h3 class="text-xs uppercase font-bold text-red-400 tracking-wider">L'Enfant Gâté</h3>
+                                    <p class="text-[10px] text-slate-500 uppercase">La victime capricieuse</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <p id="miroir-gate-texte" class="text-sm text-slate-300 leading-relaxed italic">
+                                    "Tu souffles, tu râles, ta mâchoire se crispe. Tu t'énerves sur ton écran, gâchant tes prochaines heures de travail en polluant l'ambiance avec ta mauvaise humeur."
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-8 border-t border-royal-900 pt-4 text-xs flex justify-between text-red-400 font-semibold font-sans">
+                            <span>État chimique : cortisol & colère</span>
+                            <span>Résilience : 0%</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Le Souverain Conscient (Puissance, Or) -->
+                    <div class="bg-royal-950 border-2 border-amber-500/30 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+                        <div class="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl"></div>
+                        <div>
+                            <div class="flex items-center gap-3 border-b border-royal-900 pb-4 mb-4">
+                                <span class="text-2xl">👑</span>
+                                <div>
+                                    <h3 class="text-xs uppercase font-bold text-amber-400 tracking-wider">Le Souverain Conscient</h3>
+                                    <p class="text-[10px] text-amber-500/60 uppercase font-sans">Le leader capitaine</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <p id="miroir-souverain-texte" class="text-sm text-slate-200 leading-relaxed font-medium">
+                                    "Tu respires. Tu souris intérieurement de cette micro-adversité. Tu coupes le pilote automatique et tu penses : 'Mon supercalculateur rame de 3 secondes, Louis XIV aurait fait pendre son ministre pour cela. Je m'en moque.'"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-8 border-t border-royal-900/60 pt-4 text-xs flex justify-between text-amber-400 font-semibold font-sans">
+                            <span>État chimique : oxytocine & calme</span>
+                            <span>Résilience : 100%</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INFOGRAPHIE 2: LE PROTOCOLE BIOLOGIQUE DU SOUVERAIN -->
+    <section id="protocoles" class="py-20 bg-royal-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold">Infographie 2 • Les 3 Disciplines Secrètes</span>
+                <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">La Reprogrammation Physique du Souverain</h2>
+                <p class="text-slate-400">
+                    Tu ne peux pas espérer avoir un esprit libre et souverain dans un corps que tu traites comme une poubelle. Clique sur les 3 piliers biologiques de ta transformation quotidienne.
+                </p>
+            </div>
+
+            <!-- Protocols visual layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Protocol 1 -->
+                <div onclick="selectProtocol(1)" id="card-protocol-1" class="cursor-pointer bg-slate-900/50 border-2 border-amber-500/60 rounded-3xl p-6 hover:border-amber-400 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl font-bold mb-6 group-hover:scale-105 transition">01</div>
+                        <h3 class="serif-title text-xl font-bold text-white mb-3">Le Reset Physiologique</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">Désactiver instantanément la chimie du stress (cortisol) dès que la bête interne s'allume.</p>
+                    </div>
+                    <div class="text-xs text-amber-400 font-bold border-t border-royal-900/40 pt-4 mt-4 flex justify-between items-center">
+                        <span>VOIR LE PROTOCOLE</span>
+                        <span>➔</span>
+                    </div>
+                </div>
+
+                <!-- Protocol 2 -->
+                <div onclick="selectProtocol(2)" id="card-protocol-2" class="cursor-pointer bg-slate-900/50 border border-royal-900 rounded-3xl p-6 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl font-bold mb-6 group-hover:scale-105 transition">02</div>
+                        <h3 class="serif-title text-xl font-bold text-white mb-3">Les Rituels du Vivant</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">Dormir, bouger, transpirer et toucher le soleil pour forcer ton corps à fabriquer la chimie de la force.</p>
+                    </div>
+                    <div class="text-xs text-slate-500 group-hover:text-amber-400 font-bold border-t border-royal-900/40 pt-4 mt-4 flex justify-between items-center transition">
+                        <span>VOIR LE PROTOCOLE</span>
+                        <span>➔</span>
+                    </div>
+                </div>
+
+                <!-- Protocol 3 -->
+                <div onclick="selectProtocol(3)" id="card-protocol-3" class="cursor-pointer bg-slate-900/50 border border-royal-900 rounded-3xl p-6 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl font-bold mb-6 group-hover:scale-105 transition">03</div>
+                        <h3 class="serif-title text-xl font-bold text-white mb-3">L'Édit de l'Abondance</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">Forcer ton filtre attentionnel à isoler chaque soir 3 miracles actifs de ta journée moderne.</p>
+                    </div>
+                    <div class="text-xs text-slate-500 group-hover:text-amber-400 font-bold border-t border-royal-900/40 pt-4 mt-4 flex justify-between items-center transition">
+                        <span>VOIR LE PROTOCOLE</span>
+                        <span>➔</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dynamic screen below protocol grid -->
+            <div id="protocol-display-box" class="mt-12 bg-slate-900/70 border-2 border-amber-500/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div id="protocol-content-1" class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl">🫁</span>
+                        <div>
+                            <span class="text-[10px] text-amber-400 tracking-widest font-bold uppercase block">RITUEL PHYSIOLOGIQUE DE FORCE</span>
+                            <h4 class="serif-title text-2xl font-bold text-white mt-0.5">Le Reset Physiologique (Le dresseur de bête)</h4>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Dès que tu sens la colère ou l'impatience s'allumer (gorge serrée, mâchoire tendue, souffles irrités), tu coupes l'automatisme. Ferme les yeux ou regarde au loin. Prends <strong>3 respirations abdominales amples</strong> (inspire par le nez, gonfle le ventre, expire par la bouche le plus lentement possible).
+                    </p>
+
+                    <div class="p-4 bg-royal-950/60 border-l-4 border-amber-500 rounded-r-xl">
+                        <span class="text-xs text-amber-400 font-bold uppercase tracking-wider block mb-1">Formule d'ancrage absolu à répéter :</span>
+                        <p class="text-sm text-slate-200 font-semibold italic">
+                            "Je suis en sécurité. J'ai un toit sec. J'ai de l'eau chaude. Le reste n'est qu'un jeu de société."
+                        </p>
+                    </div>
+
+                    <p class="text-xs text-slate-400">
+                        <strong>L'action biologique :</strong> Cette respiration freine le système sympathique, effondre la production de cortisol instantanément et force l'amygdale préhistorique à comprendre qu'aucun prédateur physique n'est à proximité.
+                    </p>
+                </div>
+
+                <div id="protocol-content-2" class="space-y-6 hidden">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl">☀️</span>
+                        <div>
+                            <span class="text-[10px] text-amber-400 tracking-widest font-bold uppercase block">L'ENTRETIEN DU TEMPLE BIOLOGIQUE</span>
+                            <h4 class="serif-title text-2xl font-bold text-white mt-0.5">Les Rituels du Vivant (La chimie de la force)</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-4 bg-royal-950/40 rounded-xl border border-royal-900">
+                            <span class="text-xs text-amber-400 font-bold block mb-2">🌿 Soleil & Terre</span>
+                            <p class="text-xs text-slate-300">Sors marcher au moins 20 min à la lumière naturelle tous les jours. Va toucher le vivant. Pose tes mains sur l'écorce d'un arbre. C'est ton chargeur cellulaire biologique.</p>
+                        </div>
+                        <div class="p-4 bg-royal-950/40 rounded-xl border border-royal-900">
+                            <span class="text-xs text-amber-400 font-bold block mb-2">🏃 Transpiration Souveraine</span>
+                            <p class="text-xs text-slate-300">Bouge ton corps jusqu'à transpirer. Le sport n'est pas de l'esthétique, c'est l'anxiolytique naturel numéro 1 de l'Histoire humaine.</p>
+                        </div>
+                        <div class="p-4 bg-royal-950/40 rounded-xl border border-royal-900">
+                            <span class="text-xs text-amber-400 font-bold block mb-2">💤 Sommeil & Temple</span>
+                            <p class="text-xs text-slate-300">Dors 7 à 8 heures par nuit. Le manque de sommeil est l'engrais direct de l'irritabilité et des anxiétés virtuelles de l'enfant capricieux.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="protocol-content-3" class="space-y-6 hidden">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl">📝</span>
+                        <div>
+                            <span class="text-[10px] text-amber-400 tracking-widest font-bold uppercase block">LA GYMNASTIQUE ATTENTIONNELLE DE FORCE</span>
+                            <h4 class="serif-title text-2xl font-bold text-white mt-0.5">L'Édit de l'Abondance (La gratitude active)</h4>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Notre cerveau préhistorique passe son temps à chercher les problèmes et la laideur pour nous "protéger". Tu dois lui imposer un entraînement de force contraire. Chaque soir, sur ton carnet, note **3 miracles ou 3 opportunités réels** dont tu as profité aujourd'hui.
+                    </p>
+
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-center gap-2"><strong class="text-amber-500">✔</strong> La douceur réconfortante d'un café chaud à volonté.</li>
+                        <li class="flex items-center gap-2"><strong class="text-amber-500">✔</strong> L'opportunité insolente d'apprendre n'importe quelle compétence gratuitement sur un appareil de 100g.</li>
+                        <li class="flex items-center gap-2"><strong class="text-amber-500">✔</strong> Un problème de planning résolu, ou l'utilisation d'une technologie d'IA qui t'évite 3h d'efforts administratifs.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INFOGRAPHIE 3: LA PREUVE PAR LE FEU (PARCOURS DU COACH) -->
+    <section id="preuve" class="py-20 bg-royal-900/20 border-t border-b border-royal-900/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Text on the left -->
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-volcano-500 font-semibold">Infographie 3 • La Preuve par le Feu</span>
+                    <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-6">De la Prison du RSA à la Liberté Absolue</h2>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        La clarté mentale n'a absolument rien à voir avec ton niveau de confort matériel. Elle dépend de ta connexion physique avec le réel et de ton refus d'être passif.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        L'auteur a commencé au RSA, coincé dans un studio, en rage permanente contre le système et anesthésié par l'anxiété. Sa métamorphose s'est faite par l'action brute et le dépouillement physique des chemins de Compostelle, marchant sous la pluie battante sans autre richesse que son sac à dos.
+                    </p>
+                    <div class="p-4 bg-royal-900/50 border-r-4 border-volcano-500 rounded-l-xl text-sm italic text-slate-300">
+                        "Aujourd'hui, je voyage partout, je vis libre du trading, de l'entrepreneuriat et des outils technologiques d'IA. Ce programme a été structuré et écrit en une demi-journée de focus grâce à cela. Le XXIème siècle est un terrain de jeu insolent pour ceux qui osent jouer le jeu."
+                    </div>
+                </div>
+
+                <!-- Path Visualization -->
+                <div class="bg-royal-900/30 border border-royal-800/80 rounded-3xl p-8 relative">
+                    <h3 class="text-xs uppercase tracking-widest font-bold text-slate-300 text-center mb-8">Le Parcours de Souveraineté de l'Esprit</h3>
+                    
+                    <div class="space-y-6 relative before:absolute before:bottom-6 before:top-6 before:left-[17px] before:w-[2px] before:bg-royal-800">
+                        
+                        <!-- Step 1 -->
+                        <div class="flex gap-4 relative z-10">
+                            <div class="w-9 h-9 rounded-full bg-red-950 border-2 border-red-500 flex items-center justify-center text-xs font-bold text-red-400">01</div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white">L'Enfer Anxieux du RSA</h4>
+                                <p class="text-xs text-slate-400 mt-1">Colère stérile contre le système, anxiété financière paralysante et passivité de victime dans un petit studio.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex gap-4 relative z-10">
+                            <div class="w-9 h-9 rounded-full bg-volcano-950 border-2 border-volcano-500 flex items-center justify-center text-xs font-bold text-volcano-400">02</div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-volcano-400 font-sans">Le Choc de Compostelle</h4>
+                                <p class="text-xs text-slate-400 mt-1">Dépouillement total à pied sous la pluie. Prise de conscience que la force est biologique et déconnectée du confort.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex gap-4 relative z-10">
+                            <div class="w-9 h-9 rounded-full bg-amber-950 border-2 border-amber-500 flex items-center justify-center text-xs font-bold text-amber-400 animate-pulse">03</div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-amber-300">La Conquête du Siècle</h4>
+                                <p class="text-xs text-slate-400 mt-1">Trading, écriture d'essais, création d'entreprises, nomadisme et exploitation ultra-rapide des outils d'IA. Autonomie souveraine absolue.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INTERACTIVE : LE REGISTRE DU SOUVERAIN - LE DECRET DE METAMORPHOSE -->
+    <section id="decret" class="py-20 bg-gradient-to-b from-royal-950 to-royal-900 border-t border-royal-900 relative">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold">Exercice Final • Sceau de Transition</span>
+                <h2 class="serif-title text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">Le Décret du Souverain</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base">
+                    C'est l'instant de vérité. Remplis les clauses de ta charte de souveraineté pour terrasser le gamin gâté, d’acter tes 3 rituels de force et de graver ton édit officiel.
+                </p>
+            </div>
+
+            <!-- Workspace Card -->
+            <div class="bg-royal-950 border-2 border-volcano-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+                <!-- Watermark Stamp -->
+                <div class="absolute top-6 right-6 w-24 h-24 border-2 border-volcano-500/10 rounded-full flex items-center justify-center text-volcano-500/10 font-bold serif-title text-xs rotate-12 pointer-events-none uppercase">
+                    Décret Métamorphose
+                </div>
+
+                <div class="border-b border-royal-800 pb-6 mb-8">
+                    <h3 class="serif-title text-xl text-volcano-500 font-semibold mb-1">Charte d'Indépendance Spirituelle</h3>
+                    <p class="text-xs text-slate-400">Personnalise ton engagement pour en faire une arme de souveraineté durable.</p>
+                </div>
+
+                <!-- Form Inputs -->
+                <div class="space-y-8">
+                    
+                    <!-- Clause 1: Mort de l'Enfant Gâté -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-volcano-500 uppercase tracking-widest px-2 py-0.5 bg-volcano-500/10 rounded">Clause 1</span>
+                            <h4 class="text-sm font-semibold text-slate-200">La Névrose que je tue aujourd'hui :</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-0.5">Quel est l'automatisme infantile (râler, boder, angoisser pour un Wi-Fi, un mail ou un planning décalé) que j'enterre définitivement ?</p>
+                        <input id="form-mort-enfant" type="text" placeholder="Ex: Ma colère infantile quand la 4G rame ou quand un mail n'obtient pas de réponse directe" 
+                               class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-volcano-500 transition placeholder:text-slate-600">
+                    </div>
+
+                    <hr class="border-royal-900">
+
+                    <!-- Clause 2: Les Rituels de Force Biologique -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-volcano-500 uppercase tracking-widest px-2 py-0.5 bg-volcano-500/10 rounded">Clause 2</span>
+                            <h4 class="text-sm font-semibold text-slate-200">Mon rituel physique d'entraînement quotidien :</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-0.5">Comment vais-je forcer la sueur, le soleil et le vivant à entrer dans mes journées ?</p>
+                        <textarea id="form-rituel-sport" rows="2" placeholder="Ex: Courir ou faire du sport de force 30 minutes chaque matin, et marcher au soleil sans téléphone à midi." 
+                                  class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-volcano-500 transition placeholder:text-slate-600"></textarea>
+                    </div>
+
+                    <hr class="border-royal-900">
+
+                    <!-- Clause 3: Le Projet Sacrifié par la Peur -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-volcano-500 uppercase tracking-widest px-2 py-0.5 bg-volcano-500/10 rounded">Clause 3</span>
+                            <h4 class="text-sm font-semibold text-slate-200">Le projet ou la tâche brute dans lequel je mords dès aujourd'hui :</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-0.5">Quelle est cette action que je procrastinais par peur de l'échec alors que le filet de sécurité de ma vie est total ?</p>
+                        <textarea id="form-projet-brut" rows="2" placeholder="Ex: Lancer l'écriture de mon livre de cuisine, créer mon compte de trading d'essai, ou structurer ma première offre de coaching." 
+                                  class="w-full bg-royal-900/60 border border-royal-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-volcano-500 transition placeholder:text-slate-600"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- Interactive CTA Button -->
+                <div class="mt-10 pt-6 border-t border-royal-800/80 flex flex-col sm:flex-row gap-4 justify-between items-center no-print">
+                    <p class="text-xs text-slate-400 max-w-sm text-center sm:text-left">
+                        Validez cette charte de souveraineté. Elle sera compilée sous forme de décret officiel que vous pourrez imprimer et afficher au-dessus de votre bureau.
+                    </p>
+                    <button onclick="genererDecret()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-volcano-600 to-amber-500 hover:from-volcano-500 hover:to-amber-400 text-royal-950 font-bold tracking-wider text-xs uppercase shadow-lg shadow-volcano-600/20 active:translate-y-0.5 transition font-sans">
+                        Signer mon Décret
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRINTABLE DECREE CONTAINER -->
+            <div id="decret-container" class="hidden mt-12 bg-white text-royal-950 rounded-3xl p-8 sm:p-12 border-4 border-amber-600 shadow-2xl relative">
+                <!-- Royal Seal design -->
+                <div class="absolute top-4 right-4 text-[10px] font-bold uppercase tracking-widest text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200 no-print">
+                    Charte Officielle
+                </div>
+                
+                <div class="text-center mb-10 pb-6 border-b-2 border-amber-100 relative">
+                    <!-- Absolute seal visual in background -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-4 border-dashed border-amber-500/10 rounded-full flex items-center justify-center pointer-events-none select-none">
+                        <span class="text-[10px] font-bold tracking-widest text-amber-500/10 uppercase font-sans">SOUVERAINETÉ EN COURS</span>
+                    </div>
+
+                    <h4 class="serif-title text-3xl sm:text-4xl font-extrabold tracking-tight uppercase text-amber-900">Décret de Souveraineté Royale</h4>
+                    <p class="text-xs uppercase tracking-widest text-amber-800 font-bold mt-1">MÉTAMORPHOSE ET LIBÉRATION DE L'ATTENTION</p>
+                    <p class="text-[10px] text-slate-500 italic mt-3">"Je ne suis plus le jouet de mes émotions ou de mes caprices. Je suis le souverain de mon esprit et le capitaine de mon corps."</p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Clause 1 -->
+                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span class="text-[10px] uppercase font-bold text-volcano-600 tracking-wider font-sans block mb-1">I. L'Enfant Gâté est Mort</span>
+                        <p class="text-xs text-slate-500 mb-2 leading-relaxed">À compter de ce jour, j'identifie le ridicule de mes colères de confort. Je m'engage à enterrer définitivement l'automatisme toxique suivant :</p>
+                        <p id="res-mort-enfant" class="font-bold text-base text-royal-900 italic">—</p>
+                    </div>
+
+                    <!-- Clause 2 -->
+                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span class="text-[10px] uppercase font-bold text-amber-700 tracking-wider font-sans block mb-1">II. La Discipline Biologique de Force</span>
+                        <p class="text-xs text-slate-500 mb-2 leading-relaxed">Parce que la souveraineté dépend de mon temple biologique, j'installe de manière inviolable et quotidienne le rituel physique suivant :</p>
+                        <p id="res-rituel-sport" class="text-sm font-semibold text-slate-800 leading-relaxed">—</p>
+                    </div>
+
+                    <!-- Clause 3 -->
+                    <div class="p-5 bg-slate-900 text-white rounded-2xl border border-slate-800">
+                        <span class="text-[10px] uppercase font-bold text-amber-400 tracking-wider font-sans block mb-1">III. L'Action Brute de Conquête</span>
+                        <p class="text-xs text-slate-400 mb-2 leading-relaxed">Conscient que mon filet de sécurité matériel et biologique est absolu, je mords immédiatement et de manière imparfaite dans la tâche suivante :</p>
+                        <p id="res-projet-brut" class="text-sm font-bold text-amber-300 leading-relaxed">—</p>
+                    </div>
+                </div>
+
+                <!-- Decree signature and footer -->
+                <div class="mt-8 p-4 bg-amber-50/60 border border-amber-200 rounded-2xl">
+                    <span class="text-xs uppercase font-bold text-amber-800 tracking-wider block mb-2 font-sans">🛡️ ÉDIT DU MONARQUE CONSCIENT :</span>
+                    <p class="text-xs text-slate-700 leading-relaxed">
+                        Chaque fois que ma bête interne tentera de râler, je pratiquerai le **Reset Physiologique**, je relirai cette charte et je me rappellerai de la chance insensée que j'ai de fouler cette terre en sécurité au XXIème siècle.
+                    </p>
+                </div>
+
+                <div class="mt-10 pt-6 border-t border-slate-100 flex flex-col items-center justify-between gap-6">
+                    <div class="w-full flex justify-between text-[11px] font-sans font-bold text-slate-400 uppercase tracking-wider">
+                        <span>Écrit de ma propre main libre</span>
+                        <span class="border-b border-dashed border-slate-400 w-32 text-center text-slate-600">Signature du Souverain</span>
+                    </div>
+
+                    <button onclick="window.print()" class="no-print inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs uppercase tracking-wider transition font-sans shadow-lg shadow-amber-600/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                        </svg>
+                        Imprimer le Décret Officiel
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PLAN D'ACTION IMMÉDIAT -->
+    <section class="py-16 bg-slate-900/40 border-t border-royal-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="serif-title text-2xl font-bold text-center text-white mb-10">La Souveraineté est une Discipline de Fer</h2>
+            
+            <div class="bg-royal-900/20 border border-royal-800/60 rounded-3xl p-8 space-y-6">
+                <p class="text-sm text-slate-300">
+                    Ces 3 jours de coaching n’étaient que la porte d'entrée de ton royaume. Pour terrasser définitivement tes névroses et mener une existence puissante, applique ces consignes dès aujourd'hui :
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-4 bg-royal-950/60 rounded-xl border border-royal-800">
+                        <span class="text-volcano-500 font-bold text-lg block mb-1">Mords Immédiatement</span>
+                        <span class="text-xs text-slate-400">Lance la tâche que tu repousses aujourd'hui de manière brute et imparfaite. Agir tue l'anxiété de l'esprit.</span>
+                    </div>
+                    <div class="p-4 bg-royal-950/60 rounded-xl border border-royal-800">
+                        <span class="text-volcano-500 font-bold text-lg block mb-1">Fais Corps Avec La Terre</span>
+                        <span class="text-xs text-slate-400">Coupe ton téléphone. Marche 30 minutes au soleil. Pose tes mains sur un arbre. Transpire.</span>
+                    </div>
+                    <div class="p-4 bg-royal-950/60 rounded-xl border border-royal-800">
+                        <span class="text-volcano-500 font-bold text-lg block mb-1">Fume La Négativité</span>
+                        <span class="text-xs text-slate-400">Arrête de polluer l'air avec tes plaintes de courtisan gâté. Sois la source d'inspiration de tes proches.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Closing -->
+    <footer class="py-12 border-t border-royal-900 bg-royal-950 text-center text-slate-500 text-xs no-print">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="serif-title text-sm text-amber-300/60 mb-2 font-sans">Le Syndrome de Louis XIV — Coaching Intensif</p>
+            <p class="max-w-md mx-auto leading-relaxed">Tu es désormais armé de tes outils biologiques et spirituels. Le gamin capricieux est enterré, le souverain est debout. Va régner sur ta vie.</p>
+            <p class="mt-6 text-royal-700">&copy; 2026. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Database for Miroir Infographics
+        const MiroirDatabase = {
+            wifi: {
+                gate: "Tu souffles, tu râles, ta mâchoire se crispe. Tu t'énerves sur ton écran, gâchant tes prochaines heures de travail en polluant l'ambiance avec ta mauvaise humeur.",
+                souverain: "Tu respires. Tu souris intérieurement de cette micro-adversité. Tu coupes le pilote automatique et tu penses : 'Mon supercalculateur rame de 3 secondes, Louis XIV aurait fait pendre son ministre pour cela. Je m'en moque.'"
+            },
+            bouchon: {
+                gate: "Tu tapes sur ton volant, tu insultes la terre entière et tu stresse en calculant l'impact de tes 10 minutes de retard, ruinant ta chimie de la matinée.",
+                souverain: "Tu éteins la radio hystérique. Tu respires. Tu apprécies le confort de ton siège chauffé et tu te rappelles que tes ancêtres devaient marcher 10h sous la grêle pour faire le même trajet."
+            },
+            mail: {
+                gate: "Ton estomac se noue. Tu passes 3h à échafauder des réponses cinglantes et vindicatives en silence, incapable de te concentrer sur tes priorités.",
+                souverain: "Tu ne réponds pas immédiatement. Tu souris du caprice et de l'anxiété de ce client virtuel. Tu te concentres sur la clarté de tes projets créatifs."
+            },
+            conjoint: {
+                gate: "Tu lui balances une remarque piquante et agressive dès le pas de la porte, gâchant la soirée de ton couple pour un micro-détail logistique.",
+                souverain: "Tu l'embrasses. Tu relativises immédiatement la broutille. Tu décides que ton couple et l'harmonie de ton foyer valent infiniment plus qu'une course oubliée."
+            }
+        };
+
+        function switchMiroir(key) {
+            // Remove active styles from selector buttons
+            ['wifi', 'bouchon', 'mail', 'conjoint'].forEach(k => {
+                const btn = document.getElementById(`btn-miroir-${k}`);
+                if (btn) {
+                    btn.classList.remove('border-volcano-500/60', 'active-miroir-btn');
+                    btn.classList.add('border-transparent');
+                }
+            });
+
+            // Set active style to selected
+            const activeBtn = document.getElementById(`btn-miroir-${key}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-transparent');
+                activeBtn.classList.add('border-volcano-500/60', 'active-miroir-btn');
+            }
+
+            // Set content with transitions
+            const db = MiroirDatabase[key];
+            if (db) {
+                document.getElementById('miroir-gate-texte').innerText = db.gate;
+                document.getElementById('miroir-souverain-texte').innerText = db.souverain;
+            }
+        }
+
+        // Protocol switching tabs
+        function selectProtocol(id) {
+            // Remove styles of protocol cards
+            [1, 2, 3].forEach(num => {
+                const card = document.getElementById(`card-protocol-${num}`);
+                if (card) {
+                    card.classList.remove('border-amber-500/60', 'border-2');
+                    card.classList.add('border-royal-900', 'border');
+                }
+                const content = document.getElementById(`protocol-content-${num}`);
+                if (content) {
+                    content.classList.add('hidden');
+                }
+            });
+
+            // Highlight chosen protocol
+            const activeCard = document.getElementById(`card-protocol-${id}`);
+            if (activeCard) {
+                activeCard.classList.remove('border-royal-900', 'border');
+                activeCard.classList.add('border-amber-500/60', 'border-2');
+            }
+
+            const activeContent = document.getElementById(`protocol-content-${id}`);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+            }
+        }
+
+        // Compiler the Sovereign Decree
+        function genererDecret() {
+            const enfant = document.getElementById('form-mort-enfant').value || 'Aucun comportement infantile renseigné';
+            const rituel = document.getElementById('form-rituel-sport').value || 'Aucun rituel physique d\'entraînement planifié';
+            const projet = document.getElementById('form-projet-brut').value || 'Aucune tâche brute de conquête renseignée';
+
+            // Insert into the results block
+            document.getElementById('res-mort-enfant').innerText = enfant;
+            document.getElementById('res-rituel-sport').innerText = rituel;
+            document.getElementById('res-projet-brut').innerText = projet;
+
+            // Display and smoothly scroll down to the decree card
+            const container = document.getElementById('decret-container');
+            container.classList.remove('hidden');
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>

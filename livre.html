@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Sacre Impérial — L'Antichambre Littéraire</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        imperial: {
+                            950: '#060a13',
+                            900: '#0b1325',
+                            800: '#111d35',
+                            700: '#1b2d4e',
+                            gold: '#d4af37',
+                            goldlight: '#f3e5ab',
+                            royal: '#4169e1'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #060a13; }
+        ::-webkit-scrollbar-thumb { background: #d4af3733; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d4af3766; }
+        @keyframes goldGlow {
+            0%, 100% { border-color: rgba(212, 175, 55, 0.2); box-shadow: 0 0 5px rgba(212, 175, 55, 0.05); }
+            50% { border-color: rgba(212, 175, 55, 0.6); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        }
+        .animate-royal-glow { animation: goldGlow 4s infinite ease-in-out; }
+    </style>
+</head>
+<body class="bg-imperial-950 text-slate-100 min-h-screen font-sans flex flex-col justify-between antialiased">
+
+    <!-- Custom Elegant Notification Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- SECURITY CHECK BLOCKER -->
+    <div id="lock-screen" class="hidden fixed inset-0 bg-imperial-950 z-50 flex flex-col items-center justify-center p-4">
+        <div class="w-full max-w-md bg-imperial-900 border border-red-500/20 rounded-2xl p-8 text-center space-y-6">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-950/40 text-red-400 border border-red-500/30">
+                <i class="fa-solid fa-hand text-2xl animate-pulse"></i>
+            </div>
+            <h2 class="font-serif text-2xl text-red-400">Accès Refusé</h2>
+            <p class="text-slate-400 text-sm">Messire, cet espace confidentiel requiert une accréditation valide. Veuillez vous identifier sur la page d'accueil.</p>
+            <a href="index.html" class="inline-block px-6 py-3 bg-imperial-gold text-imperial-950 font-bold uppercase tracking-widest text-xs rounded-xl">Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <!-- MAIN INTERFACE -->
+    <div id="main-content">
+        <!-- HEADER -->
+        <header class="bg-imperial-900/90 backdrop-blur border-b border-imperial-gold/10 sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="text-imperial-gold">
+                        <i class="fa-solid fa-crown text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-lg tracking-wider text-imperial-gold font-bold block">SACRE IMPÉRIAL</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-widest block -mt-1">Cabinet de transformation</span>
+                    </div>
+                </a>
+                <a href="index.html" class="px-4 py-2 bg-slate-800/60 hover:bg-slate-700/60 text-slate-300 rounded-xl transition-all text-xs flex items-center gap-2 border border-slate-700/50">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Retour Tableau de Bord</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+            <!-- Welcome Banner -->
+            <div class="bg-gradient-to-r from-imperial-900 to-imperial-800 border border-imperial-gold/20 rounded-2xl p-6 md:p-10 shadow-xl relative overflow-hidden">
+                <div class="relative z-10 max-w-3xl space-y-3">
+                    <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-imperial-gold/10 text-imperial-gold text-[10px] font-bold tracking-widest uppercase">
+                        VOLUME LITTÉRAIRE & SONORE
+                    </span>
+                    <h1 class="font-serif text-3xl md:text-5xl text-slate-100">L'Antichambre Littéraire</h1>
+                    <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                        Retrouvez l'oeuvre écrite "Le Syndrome de Louis XIV" en version numérique de luxe pour liseuse et tablette, ou lancez l'écoute immédiate du livre audio narré directement par l'auteur.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Downloads Section -->
+            <div class="bg-imperial-900 border border-slate-800 rounded-2xl p-6 space-y-6 max-w-2xl">
+                <h3 class="font-serif text-xl text-imperial-gold border-b border-imperial-gold/10 pb-3">Le Livre Numérique</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Téléchargez l'œuvre sur vos supports préférés pour lire votre dose quotidienne de relativisme brutal.</p>
+                
+                <div class="space-y-3">
+                    <!-- PDF Button -->
+                    <a href="Livre/Le Syndrome de Louis XIV.pdf" download class="w-full p-4 bg-slate-950/80 hover:bg-slate-950 border border-slate-800 hover:border-imperial-gold/40 rounded-xl flex items-center justify-between transition-all group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-red-950/40 border border-red-500/20 flex items-center justify-center text-red-400 group-hover:scale-105 transition-all">
+                                <i class="fa-solid fa-file-pdf text-lg"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-xs font-semibold text-slate-200">Format PDF Premium</p>
+                                <p class="text-[10px] text-slate-500">Mise en page de luxe — 4.2 Mo</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-download text-slate-500 group-hover:text-imperial-gold transition-all"></i>
+                    </a>
+
+                    <!-- ePub Button -->
+                    <a href="Livre/Le Syndrome de Louis XIV.epub" download class="w-full p-4 bg-slate-950/80 hover:bg-slate-950 border border-slate-800 hover:border-imperial-gold/40 rounded-xl flex items-center justify-between transition-all group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-royal/10 border border-royal/20 flex items-center justify-center text-royal group-hover:scale-105 transition-all">
+                                <i class="fa-solid fa-book text-lg"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-xs font-semibold text-slate-200">Format ePub (Liseuse)</p>
+                                <p class="text-[10px] text-slate-500">Idéal Kindle, Kobo, iPad — 1.8 Mo</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-download text-slate-500 group-hover:text-imperial-gold transition-all"></i>
+                    </a>
+
+                    <!-- Audio ZIP Button -->
+                    <a href="Livre audio/Le Syndrome de Louis XIV - Arrêtez d'avoir peur et osez enfin vivre libre !.zip" download class="w-full p-4 bg-slate-950/80 hover:bg-slate-950 border border-slate-800 hover:border-imperial-gold/40 rounded-xl flex items-center justify-between transition-all group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-950/40 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-all">
+                                <i class="fa-solid fa-headphones-simple text-lg"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-xs font-semibold text-slate-200">Livre Audio ZIP</p>
+                                <p class="text-[10px] text-slate-500">Téléchargez le pack audio complet</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-download text-slate-500 group-hover:text-imperial-gold transition-all"></i>
+                    </a>
+                </div>
+
+                <!-- Quote banner -->
+                <div class="bg-imperial-900/40 border border-slate-800/60 rounded-2xl p-6 italic text-center text-slate-400 text-xs leading-relaxed">
+                    "Votre douche chaude est un miracle technologique pour lequel le Roi-Soleil aurait volontiers échangé la moitié de ses provinces."
+                </div>
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-imperial-950 border-t border-slate-900 py-6 text-center text-slate-500 text-xs mt-12">
+            <p>© 2026 Steeve Asensi — Tous droits réservés.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Security gate
+        const email = localStorage.getItem('sacre_imperial_email');
+        if (!email) {
+            document.getElementById('lock-screen').classList.remove('hidden');
+            document.getElementById('main-content').classList.add('hidden');
+        }
+
+        // Playlist data
+        const chapters = [
+            { id: 0, title: "Préface : Prologue au Royaume", dur: "05:40", desc: "Le voile se lève sur les excès du siècle.", file: "Livre audio/00 - Préface.mp3" },
+            { id: 1, title: "Introduction : Bienvenue à Versailles", dur: "12:30", desc: "Pourquoi ce visage déconfit, Messire ?", file: "Livre audio/01 - Introduction - Bienvenue à Versailles.mp3" },
+            { id: 2, title: "Chapitre 1 : Votre douche chaude est un miracle", dur: "16:45", desc: "L'art royal de se faire perforer le palais.", file: "Livre audio/02 - Chapitre 1 - Votre douche chaude est un miracle.mp3" },
+            { id: 3, title: "Chapitre 2 : La Princesse au Petit Pois a un Smartphone", dur: "14:20", desc: "La tragédie moderne du point final dans vos SMS.", file: "Livre audio/03 - Chapitre 2 - La Princesse au Petit Pois a un Smartphone.mp3" },
+            { id: 4, title: "Chapitre 3 : Le Grand Cirque de l'Optimisation", dur: "18:10", desc: "Quand aller bien devient un métier d'audit interne.", file: "Livre audio/04 - Chapitre 3 - Le grand cirque de l'optimisation.mp3" },
+            { id: 5, title: "Chapitre 4 : La Panique du Buffet à Volonté", dur: "15:55", desc: "Le syndrome infini Netflix et l'action brute.", file: "Livre audio/05 - Chapitre 4 - La Panique du Buffet à Volonté.mp3" },
+            { id: 6, title: "Chapitre 5 : Le Guide Pratique du Relativisme Brutal", dur: "19:05", desc: "Découvrez l'exercice de la Minute Choléra.", file: "Livre audio/06 - Chapitre 5 - Le Guide Pratique du Relativisme Brutal.mp3" },
+            { id: 7, title: "Conclusion : Sortez de votre tête, touchez de l'herbe", dur: "11:15", desc: "Le manifeste souverain des hommes d'action.", file: "Livre audio/07 - Conclusion - Sortez de votre tête, touchez de l'herbe.mp3" }
+        ];
+
+        let currentTrack = 0;
+        let isPlaying = false;
+        const audio = new Audio();
+        audio.preload = 'metadata';
+        audio.onloadedmetadata = updateProgressUI;
+        audio.ontimeupdate = updateProgressUI;
+        audio.onended = () => changeTrack(1);
+        audio.onerror = () => showNotification('error', 'Impossible de lire ce fichier audio.');
+
+        function parseTime(timeStr) {
+            const [m, s] = timeStr.split(':').map(Number);
+            return m * 60 + s;
+        }
+
+        // Render Playlist
+        const playlistContainer = document.getElementById('playlist');
+        chapters.forEach((chap, idx) => {
+            const btn = document.createElement('button');
+            btn.className = `w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between text-xs ${idx === currentTrack ? 'bg-imperial-gold/10 border-imperial-gold/40 text-imperial-gold' : 'bg-slate-950/40 border-slate-800 hover:border-slate-700 text-slate-300'}`;
+            btn.onclick = () => selectTrack(idx);
+            btn.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <span class="font-bold opacity-60">${idx + 1}.</span>
+                    <div>
+                        <p class="font-medium">${chap.title}</p>
+                        <p class="text-[10px] text-slate-500 font-normal italic mt-0.5">${chap.desc}</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] text-slate-500">${chap.dur}</span>
+                    <i class="fa-solid ${idx === currentTrack && isPlaying ? 'fa-volume-high text-imperial-gold animate-bounce' : 'fa-circle-play text-slate-600'}"></i>
+                </div>
+            `;
+            playlistContainer.appendChild(btn);
+        });
+
+        function showNotification(type, message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            let bgClass = "bg-imperial-900 border-imperial-gold/40 text-slate-100";
+            let icon = "fa-solid fa-circle-check text-imperial-gold";
+            if (type === 'download') {
+                bgClass = "bg-imperial-800 border-royal/40 text-slate-100";
+                icon = "fa-solid fa-cloud-arrow-down text-royal animate-bounce";
+            }
+            if (type === 'error') {
+                bgClass = "bg-red-900 border-red-500/40 text-red-200";
+                icon = "fa-solid fa-triangle-exclamation text-red-400";
+            }
+            toast.className = `p-4 rounded-xl border flex items-center gap-3 shadow-2xl transition-all transform translate-y-2 opacity-0 duration-300 pointer-events-auto max-w-sm ${bgClass}`;
+            toast.innerHTML = `<i class="${icon} text-lg flex-shrink-0"></i><p class="text-xs font-medium leading-normal">${message}</p>`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.classList.remove('translate-y-2', 'opacity-0'); }, 10);
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => { toast.remove(); }, 300);
+            }, 4000);
+        }
+
+        function triggerMockDownload(file) {
+            showNotification('download', `<b>[Téléchargement]</b> Lancement du fichier : <code class="bg-slate-950 px-1 py-0.5 rounded text-imperial-gold text-[10px]">${file}</code>. Votre accès est validé.`);
+        }
+
+        function updatePlayState() {
+            const playIcon = document.getElementById('play-icon');
+            if (isPlaying && !audio.paused) {
+                playIcon.className = "fa-solid fa-pause";
+            } else {
+                playIcon.className = "fa-solid fa-play";
+            }
+
+            const listButtons = playlistContainer.children;
+            for (let i = 0; i < listButtons.length; i++) {
+                const icon = listButtons[i].querySelector('.fa-solid');
+                if (i === currentTrack) {
+                    listButtons[i].className = "w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between text-xs bg-imperial-gold/10 border-imperial-gold/40 text-imperial-gold";
+                    icon.className = isPlaying && !audio.paused ? "fa-solid fa-volume-high text-imperial-gold animate-bounce" : "fa-solid fa-circle-play text-imperial-gold";
+                } else {
+                    listButtons[i].className = "w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between text-xs bg-slate-950/40 border-slate-800 hover:border-slate-700 text-slate-300";
+                    icon.className = "fa-solid fa-circle-play text-slate-600";
+                }
+            }
+        }
+
+        function togglePlay() {
+            if (!audio.src) {
+                audio.src = chapters[currentTrack].file;
+                audio.load();
+            }
+            if (audio.paused) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    showNotification('info', 'Lecture lancée.');
+                    updatePlayState();
+                }).catch((err) => {
+                    isPlaying = false;
+                    updatePlayState();
+                    showNotification('error', 'Lecture bloquée par le navigateur. Appuyez sur lecture pour réessayer.');
+                    console.error(err);
+                });
+            } else {
+                audio.pause();
+                isPlaying = false;
+                showNotification('info', 'Lecture en pause.');
+                updatePlayState();
+            }
+        }
+
+        function selectTrack(idx) {
+            currentTrack = idx;
+            audio.src = chapters[idx].file;
+            audio.load();
+            audio.play().then(() => {
+                isPlaying = true;
+                updatePlayState();
+            }).catch((err) => {
+                isPlaying = false;
+                updatePlayState();
+                showNotification('error', 'Lecture bloquée par le navigateur. Appuyez sur le bouton lecture.');
+                console.error(err);
+            });
+            document.getElementById('audio-title').innerText = chapters[idx].title;
+            updateProgressUI();
+            showNotification('info', `Chargement de la piste : ${chapters[idx].title}`);
+        }
+
+        function changeTrack(direction) {
+            let next = currentTrack + direction;
+            if (next >= 0 && next < chapters.length) {
+                selectTrack(next);
+            } else {
+                showNotification('info', 'Fin de la liste de lecture.');
+            }
+        }
+
+        function updateProgressUI() {
+            const totalSec = !isNaN(audio.duration) && audio.duration > 0 ? audio.duration : parseTime(chapters[currentTrack].dur);
+            const current = !isNaN(audio.currentTime) ? audio.currentTime : 0;
+
+            if (totalSec > 0 && current >= totalSec) {
+                changeTrack(1);
+                return;
+            }
+
+            const pct = totalSec > 0 ? (current / totalSec) * 100 : 0;
+            document.getElementById('audio-progress').style.width = `${pct}%`;
+            document.getElementById('time-current').innerText = formatTime(current);
+            document.getElementById('time-total').innerText = formatTime(totalSec);
+        }
+
+        function formatTime(secs) {
+            const m = Math.floor(secs / 60);
+            const s = Math.floor(secs % 60);
+            return `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
+        }
+
+        function simulateSeek(event) {
+            const bar = event.currentTarget;
+            const rect = bar.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const pct = clickX / rect.width;
+            const totalSec = !isNaN(audio.duration) && audio.duration > 0 ? audio.duration : parseTime(chapters[currentTrack].dur);
+            audio.currentTime = Math.floor(pct * totalSec);
+            updateProgressUI();
+            showNotification('info', `Avancement de l'audio réajusté.`);
+        }
+
+        // Init player with Préface loaded without autoplay
+        currentTrack = 0;
+        audio.src = chapters[0].file;
+        document.getElementById('audio-title').innerText = chapters[0].title;
+        updatePlayState();
+        updateProgressUI();
+    </script>
+</body>
+</html>
+</body>
+</html>
