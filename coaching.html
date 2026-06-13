@@ -229,6 +229,12 @@
             3: null
         };
         let audioUpdateIntervals = {};
+        const audioSources = {
+            1: 'https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour1.mp3',
+            2: 'https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour2.mp3',
+            3: 'https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour3.mp3'
+        };
+
         let audioLoaded = {
             1: false,
             2: false,
@@ -240,14 +246,9 @@
             
             try {
                 const audio = document.getElementById(`audio-${id}`);
-                const filePath = `Coaching/jour${id}.mp3`;
+                const filePath = audioSources[id];
                 
-                const response = await fetch(filePath);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                
-                const blob = await response.blob();
-                const blobUrl = URL.createObjectURL(blob);
-                audio.src = blobUrl;
+                audio.src = filePath;
                 audioLoaded[id] = true;
             } catch (err) {
                 showNotification('error', `Impossible de charger l'audio de la Séance ${id}: ${err.message}`);
