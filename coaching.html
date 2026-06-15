@@ -81,10 +81,6 @@
                         <span class="text-[10px] text-slate-400 uppercase tracking-widest block -mt-1">Cabinet de transformation</span>
                     </div>
                 </a>
-                <a href="index.html" class="px-4 py-2 bg-slate-800/60 hover:bg-slate-700/60 text-slate-300 rounded-xl transition-all text-xs flex items-center gap-2 border border-slate-700/50">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Tableau de Bord</span>
-                </a>
             </div>
         </header>
 
@@ -92,14 +88,20 @@
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
             <!-- Top Banner -->
             <div class="bg-gradient-to-r from-imperial-900 to-imperial-800 border border-royal/20 rounded-2xl p-6 md:p-10 shadow-xl relative overflow-hidden">
-                <div class="relative z-10 max-w-3xl space-y-3">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-royal/10 text-royal text-[10px] font-bold tracking-widest uppercase">
-                        REPROGRAMMATION CELLULAIRE ACTIVE
-                    </span>
-                    <h1 class="font-serif text-3xl md:text-5xl text-slate-100">Le Sanctuaire des 3 Coachings</h1>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Écoutez chaque séance chirurgicale, puis ouvrez son <strong>support pédagogique interactif</strong> pour réaliser vos défis d'alignement et d'action brute dans votre Registre.
-                    </p>
+                <div class="grid gap-8 items-center md:grid-cols-2">
+                    <div class="flex justify-center md:justify-start">
+                        <img src="steeve-asensi.png" alt="Steeve Asensi" class="w-48 h-48 md:w-56 md:h-56 rounded-full border-2 border-imperial-gold object-cover shadow-2xl" />
+                    </div>
+                    <div class="relative z-10 space-y-3">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-royal/10 text-royal text-[10px] font-bold tracking-widest uppercase">
+                            3 JOURS, 3 DÉFIS, 1 NOUVELLE VIE
+                        </span>
+                        <h1 class="font-serif text-3xl md:text-5xl text-slate-100">Transformez-vous en 3 séances</h1>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Trois jours pour sortir de la névrose, arrêter la négativité automatique et réapprendre à vivre avec confiance.
+                            Chaque étape délivre un défi puissant pour vous aider à incarner une vie plus légère, plus claire et plus libre.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -112,22 +114,32 @@
                             <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 text-[10px] font-semibold uppercase tracking-widest border border-amber-500/20">JOUR 1</span>
                             <span class="text-xs text-slate-500"><i class="fa-solid fa-clock mr-1"></i>11:00 min</span>
                         </div>
-                        <h2 class="font-serif text-2xl text-slate-100">Le Choc de Conscience</h2>
+                        <h2 class="font-serif text-2xl text-slate-100">Jour 1 : Briser le cercle de la névrose</h2>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            "Tu as tout, mais tu fais la tronche." Une confrontation avec votre propre ridicule moderne, vos angoisses virtuelles de princes gâtés et les réalités historiques.
+                            Ici, vous prenez conscience de vos compulsions névrotiques et de cette colère irrationnelle qui explose pour un Wi‑Fi lent, une file d'attente ou un téléphone bug.
+                            Vous identifiez vos 3 principales névroses, vous mesurez leur impact et vous comprenez enfin pourquoi vous restez tout le temps fermé et insatisfait.
                         </p>
                         <!-- Local Audio element or mockup player -->
-                        <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800/80 flex items-center justify-between gap-4">
+                        <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div class="flex items-center gap-3">
                                 <button onclick="playMockAudio(1)" class="w-10 h-10 bg-royal hover:bg-royal/80 text-white rounded-full flex items-center justify-center transition-all shadow-lg"><i class="fa-solid fa-play"></i></button>
-                                <div>
+                                <div class="w-full">
                                     <p class="text-xs text-slate-300 font-semibold">Lecture de la séance</p>
                                     <p id="player-status-1" class="text-[10px] text-slate-500">Prêt pour la détox</p>
+                                    <input id="seek-bar-1" type="range" min="0" max="100" value="0" class="mt-3 w-full h-2 accent-royal rounded-full" oninput="seekAudio(1, this.value)">
+                                    <div class="flex items-center justify-between text-xs text-slate-400 mt-2">
+                                        <span id="time-current-1">0:00</span>
+                                        <span id="time-duration-1">--:--</span>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Mini Progress indicator -->
-                            <div class="hidden sm:block w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-royal h-full w-[20%]"></div>
+                            <div class="flex flex-col sm:items-end gap-2 w-full sm:w-auto">
+                                <a href="https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour1.mp3" download class="inline-flex px-3 py-2 bg-slate-800/70 hover:bg-slate-700/70 text-slate-100 text-xs uppercase tracking-widest rounded-xl transition-all shadow-sm">
+                                    <i class="fa-solid fa-download mr-2"></i> Télécharger MP3
+                                </a>
+                                <div class="hidden sm:block w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-royal h-full w-[20%]"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -147,20 +159,31 @@
                             <span class="px-2.5 py-1 rounded-lg bg-royal/10 text-royal text-[10px] font-semibold uppercase tracking-widest border border-royal/20">JOUR 2</span>
                             <span class="text-xs text-slate-500"><i class="fa-solid fa-clock mr-1"></i>11:00 min</span>
                         </div>
-                        <h2 class="font-serif text-2xl text-slate-100">L'Anatomie du Bug</h2>
+                        <h2 class="font-serif text-2xl text-slate-100">Jour 2 : Comprendre et libérer votre esprit</h2>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            "Pourquoi ton cerveau te sabote." L'héritage d'hypervigilance de la jungle, l'explication neurologique du biais de négativité et l'anesthésie délétère du confort.
+                            Vous explorez la mécanique neurologique, biologique, psychologique et sociologique de votre négativité.
+                            Ce deuxième défi vous montre pourquoi votre cerveau reste bloqué, pourquoi vous manquez de gratitude et comment ce schéma se nourrit de vos habitudes modernes.
                         </p>
-                        <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800/80 flex items-center justify-between gap-4">
+                        <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div class="flex items-center gap-3">
                                 <button onclick="playMockAudio(2)" class="w-10 h-10 bg-royal hover:bg-royal/80 text-white rounded-full flex items-center justify-center transition-all shadow-lg"><i class="fa-solid fa-play"></i></button>
-                                <div>
+                                <div class="w-full">
                                     <p class="text-xs text-slate-300 font-semibold">Lecture de la séance</p>
                                     <p id="player-status-2" class="text-[10px] text-slate-500">Prêt à décrypter le bug</p>
+                                    <input id="seek-bar-2" type="range" min="0" max="100" value="0" class="mt-3 w-full h-2 accent-royal rounded-full" oninput="seekAudio(2, this.value)">
+                                    <div class="flex items-center justify-between text-xs text-slate-400 mt-2">
+                                        <span id="time-current-2">0:00</span>
+                                        <span id="time-duration-2">--:--</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="hidden sm:block w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-royal h-full w-[45%]"></div>
+                            <div class="flex flex-col sm:items-end gap-2 w-full sm:w-auto">
+                                <a href="https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour2.mp3" download class="inline-flex px-3 py-2 bg-slate-800/70 hover:bg-slate-700/70 text-slate-100 text-xs uppercase tracking-widest rounded-xl transition-all shadow-sm">
+                                    <i class="fa-solid fa-download mr-2"></i> Télécharger MP3
+                                </a>
+                                <div class="hidden sm:block w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-royal h-full w-[45%]"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -180,20 +203,31 @@
                             <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 text-[10px] font-semibold uppercase tracking-widest border border-emerald-500/20">JOUR 3</span>
                             <span class="text-xs text-slate-500"><i class="fa-solid fa-clock mr-1"></i>11:30 min</span>
                         </div>
-                        <h2 class="font-serif text-2xl text-slate-100">La Métamorphose</h2>
+                        <h2 class="font-serif text-2xl text-slate-100">Jour 3 : Sortir définitivement de l'énervement</h2>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            "Dompter la bête et mordre dans la vie." Tuez définitivement l'enfant gâté, adoptez les rituels physiques incassables de souveraineté et signez votre grand Décret.
+                            Le troisième défi est la sortie concrète de la névrose.
+                            Vous recevez des actions claires pour couper court à l'énervement, transformer la plainte en puissance et commencer à vivre pleinement cette ère d'opportunités technologiques.
                         </p>
-                        <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800/80 flex items-center justify-between gap-4">
+                        <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div class="flex items-center gap-3">
                                 <button onclick="playMockAudio(3)" class="w-10 h-10 bg-royal hover:bg-royal/80 text-white rounded-full flex items-center justify-center transition-all shadow-lg"><i class="fa-solid fa-play"></i></button>
-                                <div>
+                                <div class="w-full">
                                     <p class="text-xs text-slate-300 font-semibold">Lecture de la séance</p>
                                     <p id="player-status-3" class="text-[10px] text-slate-500">Prêt pour la transformation</p>
+                                    <input id="seek-bar-3" type="range" min="0" max="100" value="0" class="mt-3 w-full h-2 accent-royal rounded-full" oninput="seekAudio(3, this.value)">
+                                    <div class="flex items-center justify-between text-xs text-slate-400 mt-2">
+                                        <span id="time-current-3">0:00</span>
+                                        <span id="time-duration-3">--:--</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="hidden sm:block w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-royal h-full w-[70%]"></div>
+                            <div class="flex flex-col sm:items-end gap-2 w-full sm:w-auto">
+                                <a href="https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour3.mp3" download class="inline-flex px-3 py-2 bg-slate-800/70 hover:bg-slate-700/70 text-slate-100 text-xs uppercase tracking-widest rounded-xl transition-all shadow-sm">
+                                    <i class="fa-solid fa-download mr-2"></i> Télécharger MP3
+                                </a>
+                                <div class="hidden sm:block w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-royal h-full w-[70%]"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -247,8 +281,26 @@
             try {
                 const audio = document.getElementById(`audio-${id}`);
                 const filePath = audioSources[id];
-                
+
                 audio.src = filePath;
+                // When metadata is ready, update duration display
+                audio.onloadedmetadata = () => {
+                    updateTimeDisplay(id);
+                    updateSeekBar(id);
+                };
+                // Ensure ended behaves correctly
+                audio.onended = () => {
+                    if (audioUpdateIntervals[id]) {
+                        clearInterval(audioUpdateIntervals[id]);
+                        delete audioUpdateIntervals[id];
+                    }
+                    playingId = null;
+                    document.getElementById(`player-status-${id}`).innerText = "Lecture terminée";
+                    updateButtonsUI();
+                    updateSeekBar(id);
+                    updateTimeDisplay(id);
+                };
+
                 audioLoaded[id] = true;
             } catch (err) {
                 showNotification('error', `Impossible de charger l'audio de la Séance ${id}: ${err.message}`);
@@ -272,9 +324,9 @@
 
         function playMockAudio(id) {
             const audio = document.getElementById(`audio-${id}`);
-            
+
             if (playingId === id) {
-                // Pause
+                // Pause current audio and keep position
                 audio.pause();
                 playingId = null;
                 document.getElementById(`player-status-${id}`).innerText = "Lecture suspendue";
@@ -284,7 +336,7 @@
                 }
                 showNotification('info', `Séance ${id} mise en pause.`);
             } else {
-                // Stop previous audio
+                // Stop previous audio (reset its position)
                 if (playingId) {
                     const prevAudio = document.getElementById(`audio-${playingId}`);
                     prevAudio.pause();
@@ -295,37 +347,51 @@
                         delete audioUpdateIntervals[playingId];
                     }
                 }
-                
-                // Load and play audio
+
+                // Load audio if needed, then play (resume if paused)
                 loadAudio(id).then(() => {
                     playingId = id;
-                    audio.currentTime = 0;
-                    audio.play().catch(err => {
-                        showNotification('error', `Erreur lors de la lecture: ${err.message}`);
-                    });
-                    
-                    // Update progress
+
+                    const startPlayback = () => {
+                        audio.play().catch(err => {
+                            showNotification('error', `Erreur lors de la lecture: ${err.message}`);
+                        });
+                    };
+
+                    // If the audio was previously loaded and paused at a position > 0, resume there.
+                    if (audioLoaded[id] && audio.currentTime > 0) {
+                        startPlayback();
+                    } else {
+                        // Fresh start
+                        audio.currentTime = 0;
+                        startPlayback();
+                    }
+
+                    // Clear any existing interval for safety
+                    if (audioUpdateIntervals[id]) {
+                        clearInterval(audioUpdateIntervals[id]);
+                        delete audioUpdateIntervals[id];
+                    }
+
+                    // Update progress, seekbar and time display
                     audioUpdateIntervals[id] = setInterval(() => {
-                        if (audio.paused && playingId === id) {
+                        if (audio.ended) {
                             clearInterval(audioUpdateIntervals[id]);
                             delete audioUpdateIntervals[id];
                             playingId = null;
                             document.getElementById(`player-status-${id}`).innerText = "Lecture terminée";
                             updateButtonsUI();
+                            updateSeekBar(id);
+                            updateTimeDisplay(id);
                         } else {
                             const mins = Math.floor(audio.currentTime / 60);
                             const secs = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
                             document.getElementById(`player-status-${id}`).innerText = `Écoute en cours — ${mins}:${secs}`;
-                            
-                            // Update progress bar
-                            const progressDiv = document.querySelector(`button[onclick="playMockAudio(${id})"]`)?.parentElement?.parentElement?.querySelector('.bg-royal');
-                            if (progressDiv && audio.duration) {
-                                const percentage = (audio.currentTime / audio.duration) * 100;
-                                progressDiv.style.width = `${percentage}%`;
-                            }
+                            updateSeekBar(id);
+                            updateTimeDisplay(id);
                         }
                     }, 500);
-                    
+
                     showNotification('info', `Démarrage de l'audio de la Séance ${id}.`);
                 });
             }
@@ -343,7 +409,50 @@
                     icon.className = "fa-solid fa-play";
                     btn.className = "w-10 h-10 bg-royal hover:bg-royal/80 text-white rounded-full flex items-center justify-center transition-all shadow-lg";
                 }
+                updateSeekBar(i);
+                updateTimeDisplay(i);
             }
+        }
+
+        function formatTime(seconds) {
+            if (!isFinite(seconds) || isNaN(seconds)) return '0:00';
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+            return `${m}:${s}`;
+        }
+
+        function updateTimeDisplay(id) {
+            const audio = document.getElementById(`audio-${id}`);
+            const currentEl = document.getElementById(`time-current-${id}`);
+            const durationEl = document.getElementById(`time-duration-${id}`);
+            if (!audio) return;
+            if (currentEl) currentEl.innerText = formatTime(audio.currentTime || 0);
+            if (durationEl) durationEl.innerText = audio.duration && isFinite(audio.duration) ? formatTime(audio.duration) : '--:--';
+        }
+
+        function seekAudio(id, value) {
+            const audio = document.getElementById(`audio-${id}`);
+            if (!audio) return;
+
+            const seekValue = Number(value);
+            if (audio.src && audio.duration) {
+                audio.currentTime = (audio.duration * seekValue) / 100;
+            } else {
+                loadAudio(id).then(() => {
+                    if (audio.duration) {
+                        audio.currentTime = (audio.duration * seekValue) / 100;
+                    }
+                });
+            }
+            updateSeekBar(id);
+        }
+
+        function updateSeekBar(id) {
+            const audio = document.getElementById(`audio-${id}`);
+            const seekBar = document.getElementById(`seek-bar-${id}`);
+            if (!audio || !seekBar || !audio.duration) return;
+
+            seekBar.value = Math.floor((audio.currentTime / audio.duration) * 100);
         }
     </script>
 </body>
