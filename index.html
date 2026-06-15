@@ -65,19 +65,17 @@
         }
 
         form.addEventListener('submit', (e) => {
-            e.preventDefault();
             const email = input.value.trim();
             if (!isValidEmail(email)) {
+                e.preventDefault();
                 err.classList.remove('hidden');
                 ok.classList.add('hidden');
                 return;
             }
-            // Save locally and submit to formsubmit.co (replace action address with your recipient)
             localStorage.setItem('sacre_imperial_email', email);
             err.classList.add('hidden');
             ok.classList.remove('hidden');
-            // brief delay so user sees the success message, then submit the form
-            setTimeout(() => { form.submit(); }, 700);
+            // Let the browser POST the form naturally to FormSubmit
         });
     </script>
 </body>
