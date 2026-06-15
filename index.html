@@ -1,459 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Sacre Impérial — Les 3 Séances de Coaching</title>
-    <!-- Tailwind CSS CDN -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Offre — 3 Jours de Coaching | Le Sacre Impérial</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        imperial: {
-                            950: '#060a13',
-                            900: '#0b1325',
-                            800: '#111d35',
-                            700: '#1b2d4e',
-                            gold: '#d4af37',
-                            goldlight: '#f3e5ab',
-                            royal: '#4169e1'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'Georgia', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #060a13; }
-        ::-webkit-scrollbar-thumb { background: #d4af3733; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #d4af3766; }
-        @keyframes pulseBorder {
-            0%, 100% { border-color: rgba(65, 105, 225, 0.2); }
-            50% { border-color: rgba(65, 105, 225, 0.6); }
-        }
-        .active-session-card { animation: pulseBorder 3s infinite ease-in-out; }
-    </style>
 </head>
-<body class="bg-imperial-950 text-slate-100 min-h-screen font-sans flex flex-col justify-between antialiased">
-
-    <!-- Toast notification system -->
-    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3 pointer-events-none"></div>
-
-    <!-- Audio Players -->
-    <audio id="audio-1"></audio>
-    <audio id="audio-2"></audio>
-    <audio id="audio-3"></audio>
-
-    <!-- SECURITY LATCH -->
-    <div id="lock-screen" class="hidden fixed inset-0 bg-imperial-950 z-50 flex flex-col items-center justify-center p-4">
-        <div class="w-full max-w-md bg-imperial-900 border border-red-500/20 rounded-2xl p-8 text-center space-y-6">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-950/40 text-red-400 border border-red-500/30">
-                <i class="fa-solid fa-lock text-2xl"></i>
+<body class="bg-imperial-950 text-slate-100 min-h-screen font-sans flex items-center justify-center p-6">
+    <div class="max-w-3xl w-full bg-imperial-900 border border-royal/20 rounded-2xl p-8 shadow-xl">
+        <div class="flex gap-6 items-center">
+            <img src="steeve-asensi.png" alt="Steeve Asensi" class="w-28 h-28 rounded-full border-2 border-imperial-gold object-cover"/>
+            <div>
+                <h1 class="font-serif text-3xl text-slate-100">Transformez-vous en 3 jours</h1>
+                <p class="text-slate-400 mt-2">Trois séances — trois défis concrets pour sortir de la névrose, arrêter la négativité automatique et reprendre le pouvoir sur votre état intérieur. Résultats rapides : plus de calme, plus de clarté, plus d'énergie.</p>
             </div>
-            <h2 class="font-serif text-2xl text-red-400">Accès Privé</h2>
-            <p class="text-slate-400 text-sm">Ce cabinet de reprogrammation est strictement réservé aux monarques confirmés.</p>
-            <a href="index.html" class="inline-block px-6 py-3 bg-imperial-gold text-imperial-950 font-bold text-xs rounded-xl">Page d'accueil</a>
         </div>
-    </div>
 
-    <!-- MAIN FRAME -->
-    <div id="main-content">
-        <!-- HEADER -->
-        <header class="bg-imperial-900/90 backdrop-blur border-b border-imperial-gold/10 sticky top-0 z-40">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-3">
-                    <div class="text-imperial-gold"><i class="fa-solid fa-crown text-2xl"></i></div>
-                    <div>
-                        <span class="font-serif text-lg tracking-wider text-imperial-gold font-bold block">SACRE IMPÉRIAL</span>
-                        <span class="text-[10px] text-slate-400 uppercase tracking-widest block -mt-1">Cabinet de transformation</span>
-                    </div>
-                </a>
+        <hr class="my-6 border-slate-800" />
+
+        <div class="grid gap-4 md:grid-cols-3">
+            <div class="p-4 bg-imperial-950/60 rounded-xl border border-slate-800/60">
+                <h3 class="text-sm text-amber-400 font-bold">Jour 1</h3>
+                <p class="text-xs text-slate-300 mt-2">Diagnostic : identifiez vos 3 névroses, mesurez leur impact et gagnez conscience.</p>
             </div>
-        </header>
-
-        <!-- CONTENT LAYOUT -->
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-            <!-- Top Banner -->
-            <div class="bg-gradient-to-r from-imperial-900 to-imperial-800 border border-royal/20 rounded-2xl p-6 md:p-10 shadow-xl relative overflow-hidden">
-                <div class="grid gap-8 items-center md:grid-cols-2">
-                    <div class="flex justify-center md:justify-start">
-                        <img src="steeve-asensi.png" alt="Steeve Asensi" class="w-48 h-48 md:w-56 md:h-56 rounded-full border-2 border-imperial-gold object-cover shadow-2xl" />
-                    </div>
-                    <div class="relative z-10 space-y-3">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-royal/10 text-royal text-[10px] font-bold tracking-widest uppercase">
-                            3 JOURS, 3 DÉFIS, 1 NOUVELLE VIE
-                        </span>
-                        <h1 class="font-serif text-3xl md:text-5xl text-slate-100">Transformez-vous en 3 séances</h1>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Trois jours pour sortir de la névrose, arrêter la négativité automatique et réapprendre à vivre avec confiance.
-                            Chaque étape délivre un défi puissant pour vous aider à incarner une vie plus légère, plus claire et plus libre.
-                        </p>
-                    </div>
-                </div>
+            <div class="p-4 bg-imperial-950/60 rounded-xl border border-slate-800/60">
+                <h3 class="text-sm text-royal font-bold">Jour 2</h3>
+                <p class="text-xs text-slate-300 mt-2">Origine : comprenez la mécanique neurologique, biologique et sociale qui alimente la négativité.</p>
             </div>
-
-            <!-- Three Sessions Listing -->
-            <div class="space-y-8">
-                <!-- SESSION 1 CARD -->
-                <div class="bg-imperial-900 border border-slate-800 rounded-2xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center transition-all hover:border-royal/30">
-                    <div class="lg:col-span-8 space-y-4">
-                        <div class="flex items-center gap-3">
-                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 text-[10px] font-semibold uppercase tracking-widest border border-amber-500/20">JOUR 1</span>
-                            <span class="text-xs text-slate-500"><i class="fa-solid fa-clock mr-1"></i>11:00 min</span>
-                        </div>
-                        <h2 class="font-serif text-2xl text-slate-100">Jour 1 : Briser le cercle de la névrose</h2>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Ici, vous prenez conscience de vos compulsions névrotiques et de cette colère irrationnelle qui explose pour un Wi‑Fi lent, une file d'attente ou un téléphone bug.
-                            Vous identifiez vos 3 principales névroses, vous mesurez leur impact et vous comprenez enfin pourquoi vous restez tout le temps fermé et insatisfait.
-                        </p>
-                        <!-- Local Audio element or mockup player -->
-                        <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center gap-3">
-                                <button onclick="playMockAudio(1)" class="w-10 h-10 bg-royal hover:bg-royal/80 text-white rounded-full flex items-center justify-center transition-all shadow-lg"><i class="fa-solid fa-play"></i></button>
-                                <div class="w-full">
-                                    <p class="text-xs text-slate-300 font-semibold">Lecture de la séance</p>
-                                    <p id="player-status-1" class="text-[10px] text-slate-500">Prêt pour la détox</p>
-                                    <input id="seek-bar-1" type="range" min="0" max="100" value="0" class="mt-3 w-full h-2 accent-royal rounded-full" oninput="seekAudio(1, this.value)">
-                                    <div class="flex items-center justify-between text-xs text-slate-400 mt-2">
-                                        <span id="time-current-1">0:00</span>
-                                        <span id="time-duration-1">--:--</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex flex-col sm:items-end gap-2 w-full sm:w-auto">
-                                <a href="https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour1.mp3" download class="inline-flex px-3 py-2 bg-slate-800/70 hover:bg-slate-700/70 text-slate-100 text-xs uppercase tracking-widest rounded-xl transition-all shadow-sm">
-                                    <i class="fa-solid fa-download mr-2"></i> Télécharger MP3
-                                </a>
-                                <div class="hidden sm:block w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-royal h-full w-[20%]"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-4 flex flex-col justify-center space-y-3">
-                        <a href="support1.html" class="w-full py-4 bg-gradient-to-r from-imperial-gold/80 to-amber-600 hover:from-imperial-gold hover:to-amber-500 text-imperial-950 text-center font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-                            <span>Ouvrir l'Atelier Interactif</span>
-                            <i class="fa-solid fa-pen-nib"></i>
-                        </a>
-                        <p class="text-[10px] text-slate-500 text-center italic">Infographies, outils d'exercices & générateur PDF</p>
-                    </div>
-                </div>
-
-                <!-- SESSION 2 CARD -->
-                <div class="bg-imperial-900 border border-slate-800 rounded-2xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center transition-all hover:border-royal/30">
-                    <div class="lg:col-span-8 space-y-4">
-                        <div class="flex items-center gap-3">
-                            <span class="px-2.5 py-1 rounded-lg bg-royal/10 text-royal text-[10px] font-semibold uppercase tracking-widest border border-royal/20">JOUR 2</span>
-                            <span class="text-xs text-slate-500"><i class="fa-solid fa-clock mr-1"></i>11:00 min</span>
-                        </div>
-                        <h2 class="font-serif text-2xl text-slate-100">Jour 2 : Comprendre et libérer votre esprit</h2>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Vous explorez la mécanique neurologique, biologique, psychologique et sociologique de votre négativité.
-                            Ce deuxième défi vous montre pourquoi votre cerveau reste bloqué, pourquoi vous manquez de gratitude et comment ce schéma se nourrit de vos habitudes modernes.
-                        </p>
-                        <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center gap-3">
-                                <button onclick="playMockAudio(2)" class="w-10 h-10 bg-royal hover:bg-royal/80 text-white rounded-full flex items-center justify-center transition-all shadow-lg"><i class="fa-solid fa-play"></i></button>
-                                <div class="w-full">
-                                    <p class="text-xs text-slate-300 font-semibold">Lecture de la séance</p>
-                                    <p id="player-status-2" class="text-[10px] text-slate-500">Prêt à décrypter le bug</p>
-                                    <input id="seek-bar-2" type="range" min="0" max="100" value="0" class="mt-3 w-full h-2 accent-royal rounded-full" oninput="seekAudio(2, this.value)">
-                                    <div class="flex items-center justify-between text-xs text-slate-400 mt-2">
-                                        <span id="time-current-2">0:00</span>
-                                        <span id="time-duration-2">--:--</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex flex-col sm:items-end gap-2 w-full sm:w-auto">
-                                <a href="https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour2.mp3" download class="inline-flex px-3 py-2 bg-slate-800/70 hover:bg-slate-700/70 text-slate-100 text-xs uppercase tracking-widest rounded-xl transition-all shadow-sm">
-                                    <i class="fa-solid fa-download mr-2"></i> Télécharger MP3
-                                </a>
-                                <div class="hidden sm:block w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-royal h-full w-[45%]"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-4 flex flex-col justify-center space-y-3">
-                        <a href="support2.html" class="w-full py-4 bg-gradient-to-r from-imperial-gold/80 to-amber-600 hover:from-imperial-gold hover:to-amber-500 text-imperial-950 text-center font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-                            <span>Ouvrir l'Atelier Interactif</span>
-                            <i class="fa-solid fa-pen-nib"></i>
-                        </a>
-                        <p class="text-[10px] text-slate-500 text-center italic">Infographies, outils d'exercices & générateur PDF</p>
-                    </div>
-                </div>
-
-                <!-- SESSION 3 CARD -->
-                <div class="bg-imperial-900 border border-slate-800 rounded-2xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center transition-all hover:border-royal/30">
-                    <div class="lg:col-span-8 space-y-4">
-                        <div class="flex items-center gap-3">
-                            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 text-[10px] font-semibold uppercase tracking-widest border border-emerald-500/20">JOUR 3</span>
-                            <span class="text-xs text-slate-500"><i class="fa-solid fa-clock mr-1"></i>11:30 min</span>
-                        </div>
-                        <h2 class="font-serif text-2xl text-slate-100">Jour 3 : Sortir définitivement de l'énervement</h2>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Le troisième défi est la sortie concrète de la névrose.
-                            Vous recevez des actions claires pour couper court à l'énervement, transformer la plainte en puissance et commencer à vivre pleinement cette ère d'opportunités technologiques.
-                        </p>
-                        <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center gap-3">
-                                <button onclick="playMockAudio(3)" class="w-10 h-10 bg-royal hover:bg-royal/80 text-white rounded-full flex items-center justify-center transition-all shadow-lg"><i class="fa-solid fa-play"></i></button>
-                                <div class="w-full">
-                                    <p class="text-xs text-slate-300 font-semibold">Lecture de la séance</p>
-                                    <p id="player-status-3" class="text-[10px] text-slate-500">Prêt pour la transformation</p>
-                                    <input id="seek-bar-3" type="range" min="0" max="100" value="0" class="mt-3 w-full h-2 accent-royal rounded-full" oninput="seekAudio(3, this.value)">
-                                    <div class="flex items-center justify-between text-xs text-slate-400 mt-2">
-                                        <span id="time-current-3">0:00</span>
-                                        <span id="time-duration-3">--:--</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex flex-col sm:items-end gap-2 w-full sm:w-auto">
-                                <a href="https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour3.mp3" download class="inline-flex px-3 py-2 bg-slate-800/70 hover:bg-slate-700/70 text-slate-100 text-xs uppercase tracking-widest rounded-xl transition-all shadow-sm">
-                                    <i class="fa-solid fa-download mr-2"></i> Télécharger MP3
-                                </a>
-                                <div class="hidden sm:block w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-royal h-full w-[70%]"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-4 flex flex-col justify-center space-y-3">
-                        <a href="support3.html" class="w-full py-4 bg-gradient-to-r from-imperial-gold/80 to-amber-600 hover:from-imperial-gold hover:to-amber-500 text-imperial-950 text-center font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-                            <span>Signer l'Édit Royal</span>
-                            <i class="fa-solid fa-signature"></i>
-                        </a>
-                        <p class="text-[10px] text-slate-500 text-center italic">Signature électronique & Parchemin de luxe</p>
-                    </div>
-                </div>
+            <div class="p-4 bg-imperial-950/60 rounded-xl border border-slate-800/60">
+                <h3 class="text-sm text-emerald-400 font-bold">Jour 3</h3>
+                <p class="text-xs text-slate-300 mt-2">Transformation : défis pratiques pour couper court à l'énervement et vivre pleinement.</p>
             </div>
-        </main>
+        </div>
 
-        <!-- FOOTER -->
-        <footer class="bg-imperial-950 border-t border-slate-900 py-6 text-center text-slate-500 text-xs mt-12">
-            <p>© 2026 Steeve Asensi — Tous droits réservés.</p>
-        </footer>
+        <p class="text-slate-300 mt-6 text-sm">Pour accéder immédiatement aux séances, renseignez votre e‑mail ci‑dessous. Un e‑mail valide est obligatoire. Vous serez redirigé·e vers le tableau de bord après validation.</p>
+
+        <form id="email-form" class="mt-4 grid gap-3" action="https://formsubmit.co/asensi.steeve@gmail.com" method="POST">
+            <!-- FormSubmit recipient configured: asensi.steeve@gmail.com -->
+            <input type="hidden" name="_next" value="index.html" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="Nouvel abonnement — Sacre Imperial" />
+            <div class="flex gap-3">
+                <input id="email-input" name="email" type="email" placeholder="Votre adresse e‑mail" required class="w-full px-4 py-3 rounded-xl bg-imperial-950 border border-slate-800 text-slate-100 focus:outline-none" />
+                <button type="submit" class="px-4 py-3 bg-royal hover:bg-royal/80 rounded-xl text-white font-semibold">Accéder</button>
+            </div>
+            <p id="form-error" class="text-xs text-red-400 hidden">Veuillez saisir une adresse e‑mail valide.</p>
+            <p id="form-success" class="text-xs text-emerald-400 hidden">E‑mail validé. Redirection…</p>
+        </form>
+
+        <p class="text-[10px] text-slate-500 mt-4">En vous inscrivant, vous acceptez de recevoir les séances et nos communications. Vous pouvez vous désinscrire à tout moment.</p>
     </div>
 
     <script>
-        // Security gate
-        const email = localStorage.getItem('sacre_imperial_email');
-        if (!email) {
-            document.getElementById('lock-screen').classList.remove('hidden');
-            document.getElementById('main-content').classList.add('hidden');
+        // Simple client-side validation, store email and redirect
+        const form = document.getElementById('email-form');
+        const input = document.getElementById('email-input');
+        const err = document.getElementById('form-error');
+        const ok = document.getElementById('form-success');
+
+        function isValidEmail(email) {
+            // Basic RFC-like check
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
 
-        let playingId = null;
-        let audioElements = {
-            1: null,
-            2: null,
-            3: null
-        };
-        let audioUpdateIntervals = {};
-        const audioSources = {
-            1: 'https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour1.mp3',
-            2: 'https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour2.mp3',
-            3: 'https://pub-8bad783a46cb4511b8faa09d1c7b9b3a.r2.dev/coaching/jour3.mp3'
-        };
-
-        let audioLoaded = {
-            1: false,
-            2: false,
-            3: false
-        };
-
-        async function loadAudio(id) {
-            if (audioLoaded[id]) return;
-            
-            try {
-                const audio = document.getElementById(`audio-${id}`);
-                const filePath = audioSources[id];
-
-                audio.src = filePath;
-                // When metadata is ready, update duration display
-                audio.onloadedmetadata = () => {
-                    updateTimeDisplay(id);
-                    updateSeekBar(id);
-                };
-                // Ensure ended behaves correctly
-                audio.onended = () => {
-                    if (audioUpdateIntervals[id]) {
-                        clearInterval(audioUpdateIntervals[id]);
-                        delete audioUpdateIntervals[id];
-                    }
-                    playingId = null;
-                    document.getElementById(`player-status-${id}`).innerText = "Lecture terminée";
-                    updateButtonsUI();
-                    updateSeekBar(id);
-                    updateTimeDisplay(id);
-                };
-
-                audioLoaded[id] = true;
-            } catch (err) {
-                showNotification('error', `Impossible de charger l'audio de la Séance ${id}: ${err.message}`);
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = input.value.trim();
+            if (!isValidEmail(email)) {
+                err.classList.remove('hidden');
+                ok.classList.add('hidden');
+                return;
             }
-        }
-
-        function showNotification(type, message) {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            let bgClass = "bg-imperial-900 border-imperial-gold/40 text-slate-100";
-            let icon = "fa-solid fa-microphone-lines text-royal";
-            toast.className = `p-4 rounded-xl border flex items-center gap-3 shadow-2xl transition-all transform translate-y-2 opacity-0 duration-300 pointer-events-auto max-w-sm ${bgClass}`;
-            toast.innerHTML = `<i class="${icon} text-lg flex-shrink-0"></i><p class="text-xs font-medium leading-normal">${message}</p>`;
-            container.appendChild(toast);
-            setTimeout(() => { toast.classList.remove('translate-y-2', 'opacity-0'); }, 10);
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => { toast.remove(); }, 300);
-            }, 4000);
-        }
-
-        function playMockAudio(id) {
-            const audio = document.getElementById(`audio-${id}`);
-
-            if (playingId === id) {
-                // Pause current audio and keep position
-                audio.pause();
-                playingId = null;
-                document.getElementById(`player-status-${id}`).innerText = "Lecture suspendue";
-                if (audioUpdateIntervals[id]) {
-                    clearInterval(audioUpdateIntervals[id]);
-                    delete audioUpdateIntervals[id];
-                }
-                showNotification('info', `Séance ${id} mise en pause.`);
-            } else {
-                // Stop previous audio (reset its position)
-                if (playingId) {
-                    const prevAudio = document.getElementById(`audio-${playingId}`);
-                    prevAudio.pause();
-                    prevAudio.currentTime = 0;
-                    document.getElementById(`player-status-${playingId}`).innerText = "Lecture suspendue";
-                    if (audioUpdateIntervals[playingId]) {
-                        clearInterval(audioUpdateIntervals[playingId]);
-                        delete audioUpdateIntervals[playingId];
-                    }
-                }
-
-                // Load audio if needed, then play (resume if paused)
-                loadAudio(id).then(() => {
-                    playingId = id;
-
-                    const startPlayback = () => {
-                        audio.play().catch(err => {
-                            showNotification('error', `Erreur lors de la lecture: ${err.message}`);
-                        });
-                    };
-
-                    // If the audio was previously loaded and paused at a position > 0, resume there.
-                    if (audioLoaded[id] && audio.currentTime > 0) {
-                        startPlayback();
-                    } else {
-                        // Fresh start
-                        audio.currentTime = 0;
-                        startPlayback();
-                    }
-
-                    // Clear any existing interval for safety
-                    if (audioUpdateIntervals[id]) {
-                        clearInterval(audioUpdateIntervals[id]);
-                        delete audioUpdateIntervals[id];
-                    }
-
-                    // Update progress, seekbar and time display
-                    audioUpdateIntervals[id] = setInterval(() => {
-                        if (audio.ended) {
-                            clearInterval(audioUpdateIntervals[id]);
-                            delete audioUpdateIntervals[id];
-                            playingId = null;
-                            document.getElementById(`player-status-${id}`).innerText = "Lecture terminée";
-                            updateButtonsUI();
-                            updateSeekBar(id);
-                            updateTimeDisplay(id);
-                        } else {
-                            const mins = Math.floor(audio.currentTime / 60);
-                            const secs = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
-                            document.getElementById(`player-status-${id}`).innerText = `Écoute en cours — ${mins}:${secs}`;
-                            updateSeekBar(id);
-                            updateTimeDisplay(id);
-                        }
-                    }, 500);
-
-                    showNotification('info', `Démarrage de l'audio de la Séance ${id}.`);
-                });
-            }
-            updateButtonsUI();
-        }
-
-        function updateButtonsUI() {
-            for (let i = 1; i <= 3; i++) {
-                const btn = document.querySelector(`button[onclick="playMockAudio(${i})"]`);
-                const icon = btn.querySelector('i');
-                if (playingId === i) {
-                    icon.className = "fa-solid fa-pause";
-                    btn.className = "w-10 h-10 bg-amber-500 text-imperial-950 rounded-full flex items-center justify-center transition-all shadow-lg scale-105";
-                } else {
-                    icon.className = "fa-solid fa-play";
-                    btn.className = "w-10 h-10 bg-royal hover:bg-royal/80 text-white rounded-full flex items-center justify-center transition-all shadow-lg";
-                }
-                updateSeekBar(i);
-                updateTimeDisplay(i);
-            }
-        }
-
-        function formatTime(seconds) {
-            if (!isFinite(seconds) || isNaN(seconds)) return '0:00';
-            const m = Math.floor(seconds / 60);
-            const s = Math.floor(seconds % 60).toString().padStart(2, '0');
-            return `${m}:${s}`;
-        }
-
-        function updateTimeDisplay(id) {
-            const audio = document.getElementById(`audio-${id}`);
-            const currentEl = document.getElementById(`time-current-${id}`);
-            const durationEl = document.getElementById(`time-duration-${id}`);
-            if (!audio) return;
-            if (currentEl) currentEl.innerText = formatTime(audio.currentTime || 0);
-            if (durationEl) durationEl.innerText = audio.duration && isFinite(audio.duration) ? formatTime(audio.duration) : '--:--';
-        }
-
-        function seekAudio(id, value) {
-            const audio = document.getElementById(`audio-${id}`);
-            if (!audio) return;
-
-            const seekValue = Number(value);
-            if (audio.src && audio.duration) {
-                audio.currentTime = (audio.duration * seekValue) / 100;
-            } else {
-                loadAudio(id).then(() => {
-                    if (audio.duration) {
-                        audio.currentTime = (audio.duration * seekValue) / 100;
-                    }
-                });
-            }
-            updateSeekBar(id);
-        }
-
-        function updateSeekBar(id) {
-            const audio = document.getElementById(`audio-${id}`);
-            const seekBar = document.getElementById(`seek-bar-${id}`);
-            if (!audio || !seekBar || !audio.duration) return;
-
-            seekBar.value = Math.floor((audio.currentTime / audio.duration) * 100);
-        }
+            // Save locally and submit to formsubmit.co (replace action address with your recipient)
+            localStorage.setItem('sacre_imperial_email', email);
+            err.classList.add('hidden');
+            ok.classList.remove('hidden');
+            // brief delay so user sees the success message, then submit the form
+            setTimeout(() => { form.submit(); }, 700);
+        });
     </script>
 </body>
 </html>
