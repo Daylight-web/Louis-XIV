@@ -6,29 +6,46 @@
     <title>Offre — 3 Jours de Coaching | Le Sacre Impérial</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Configuration des couleurs personnalisées pour le thème Impérial
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        imperial: {
+                            gold: '#D4AF37',
+                            900: '#111015',
+                            950: '#09080b',
+                        },
+                        royal: '#3b82f6', // Bleu Royal élégant
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="bg-imperial-950 text-slate-100 min-h-screen font-sans flex items-center justify-center p-6">
     <div class="max-w-3xl w-full bg-imperial-900 border border-royal/20 rounded-2xl p-8 shadow-xl">
-        <div class="flex gap-6 items-center">
-            <img src="steeve-asensi.png" alt="Steeve Asensi" class="w-28 h-28 rounded-full border-2 border-imperial-gold object-cover"/>
-            <div>
+        <div class="flex flex-col sm:flex-row gap-6 items-center">
+            <img src="steeve-asensi.png" alt="Steeve Asensi" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&h=256&q=80'" class="w-28 h-28 rounded-full border-2 border-imperial-gold object-cover shadow-lg"/>
+            <div class="text-center sm:text-left">
                 <h1 class="font-serif text-3xl text-slate-100">Transformez-vous en 3 jours</h1>
-                <p class="text-slate-400 mt-2">Trois séances — trois défis concrets pour sortir de la névrose, arrêter la négativité automatique et reprendre le pouvoir sur votre état intérieur. Résultats rapides : plus de calme, plus de clarté, plus d'énergie.</p>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">Trois séances — trois défis concrets pour sortir de la névrose, arrêter la négativité automatique et reprendre le pouvoir sur votre état intérieur. Résultats rapides : plus de calme, plus de clarté, plus d'énergie.</p>
             </div>
         </div>
 
         <hr class="my-6 border-slate-800" />
 
         <div class="grid gap-4 md:grid-cols-3">
-            <div class="p-4 bg-imperial-950/60 rounded-xl border border-slate-800/60">
+            <div class="p-4 bg-imperial-950/60 rounded-xl border border-slate-800/60 transition hover:border-slate-700/60">
                 <h3 class="text-sm text-amber-400 font-bold">Jour 1</h3>
                 <p class="text-xs text-slate-300 mt-2">Diagnostic : identifiez vos 3 névroses, mesurez leur impact et gagnez conscience.</p>
             </div>
-            <div class="p-4 bg-imperial-950/60 rounded-xl border border-slate-800/60">
+            <div class="p-4 bg-imperial-950/60 rounded-xl border border-slate-800/60 transition hover:border-slate-700/60">
                 <h3 class="text-sm text-royal font-bold">Jour 2</h3>
                 <p class="text-xs text-slate-300 mt-2">Origine : comprenez la mécanique neurologique, biologique et sociale qui alimente la négativité.</p>
             </div>
-            <div class="p-4 bg-imperial-950/60 rounded-xl border border-slate-800/60">
+            <div class="p-4 bg-imperial-950/60 rounded-xl border border-slate-800/60 transition hover:border-slate-700/60">
                 <h3 class="text-sm text-emerald-400 font-bold">Jour 3</h3>
                 <p class="text-xs text-slate-300 mt-2">Transformation : défis pratiques pour couper court à l'énervement et vivre pleinement.</p>
             </div>
@@ -37,45 +54,96 @@
         <p class="text-slate-300 mt-6 text-sm">Pour accéder immédiatement aux séances, renseignez votre e‑mail ci‑dessous. Un e‑mail valide est obligatoire. Vous serez redirigé·e vers la page de coaching après validation.</p>
 
         <form id="email-form" class="mt-4 grid gap-3" action="https://formsubmit.co/asensi.steeve@gmail.com" method="POST">
-            <!-- FormSubmit recipient configured: asensi.steeve@gmail.com -->
-            <input type="hidden" name="_next" value="coaching.html" />
+            <!-- Configuration FormSubmit -->
+            <input type="hidden" name="_next" id="next-redirect" value="coaching.html" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_subject" value="Nouvel abonnement — Sacre Imperial" />
-            <div class="flex gap-3">
-                <input id="email-input" name="email" type="email" placeholder="Votre adresse e‑mail" required class="w-full px-4 py-3 rounded-xl bg-imperial-950 border border-slate-800 text-slate-100 focus:outline-none" />
-                <button type="submit" class="px-4 py-3 bg-royal hover:bg-royal/80 rounded-xl text-white font-semibold">Accéder</button>
+            
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input id="email-input" name="email" type="email" placeholder="Votre adresse e‑mail" required class="w-full px-4 py-3 rounded-xl bg-imperial-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-royal/50 focus:ring-1 focus:ring-royal/30 transition" />
+                <button type="submit" id="submit-btn" class="px-6 py-3 bg-royal hover:bg-royal/80 rounded-xl text-white font-semibold transition active:scale-[0.98] whitespace-nowrap">
+                    Accéder
+                </button>
             </div>
-            <p id="form-error" class="text-xs text-red-400 hidden">Veuillez saisir une adresse e‑mail valide.</p>
-            <p id="form-success" class="text-xs text-emerald-400 hidden">E‑mail validé. Redirection…</p>
+            <p id="form-error" class="text-xs text-red-400 hidden"><i class="fa-solid fa-circle-exclamation mr-1"></i> Veuillez saisir une adresse e‑mail valide.</p>
+            <p id="form-success" class="text-xs text-emerald-400 hidden"><i class="fa-solid fa-circle-notch animate-spin mr-1"></i> E‑mail validé. Enregistrement et redirection en cours...</p>
         </form>
 
         <p class="text-[10px] text-slate-500 mt-4">En vous inscrivant, vous acceptez de recevoir les séances et nos communications. Vous pouvez vous désinscrire à tout moment.</p>
     </div>
 
     <script>
-        // Simple client-side validation, store email and redirect
         const form = document.getElementById('email-form');
         const input = document.getElementById('email-input');
         const err = document.getElementById('form-error');
         const ok = document.getElementById('form-success');
+        const submitBtn = document.getElementById('submit-btn');
+        const nextInput = document.getElementById('next-redirect');
+
+        // Met à jour dynamiquement l'URL absolue de redirection pour FormSubmit (sécurité accrue)
+        try {
+            nextInput.value = new URL("coaching.html", window.location.href).href;
+        } catch (e) {
+            console.error("Erreur de calcul de l'URL absolue", e);
+        }
 
         function isValidEmail(email) {
-            // Basic RFC-like check
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
 
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // On intercepte pour gérer l'AJAX proprement et sauvegarder l'e-mail
+            
             const email = input.value.trim();
+            
             if (!isValidEmail(email)) {
-                e.preventDefault();
                 err.classList.remove('hidden');
                 ok.classList.add('hidden');
                 return;
             }
-            localStorage.setItem('sacre_imperial_email', email);
+
+            // UI : Masquer les erreurs, afficher le chargement et désactiver le bouton
             err.classList.add('hidden');
             ok.classList.remove('hidden');
-            // Let the browser POST the form naturally to FormSubmit
+            ok.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin mr-1"></i> Traitement de votre demande...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            // Sauvegarde de l'email en local
+            localStorage.setItem('sacre_imperial_email', email);
+
+            try {
+                // Tentative d'envoi AJAX fluide (sans recharger la page d'abord)
+                const response = await fetch("https://formsubmit.co/ajax/asensi.steeve@gmail.com", {
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        _subject: "Nouvel abonnement — Sacre Imperial",
+                        _captcha: "false"
+                    })
+                });
+
+                if (response.ok) {
+                    ok.innerHTML = '<i class="fa-solid fa-circle-check mr-1"></i> Inscription réussie ! Redirection immédiate...';
+                    setTimeout(() => {
+                        window.location.href = "coaching.html";
+                    }, 1000);
+                } else {
+                    throw new Error("La requête AJAX de FormSubmit a échoué");
+                }
+            } catch (error) {
+                // Si l'AJAX échoue ou est bloqué par le navigateur, on utilise la méthode d'envoi classique
+                console.warn("Échec AJAX, bascule sur la soumission classique du formulaire.", error);
+                ok.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin mr-1"></i> Redirection vers la passerelle sécurisée...';
+                
+                // On réactive brièvement et on laisse le formulaire s'envoyer de façon standard
+                submitBtn.disabled = false;
+                form.submit();
+            }
         });
     </script>
 </body>
